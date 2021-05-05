@@ -1,0 +1,964 @@
+﻿<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="In diesem Thema wird das Transmuxing erläutert, ein Prozess, mit dem Sie Ihre Videos in MP4 codieren und diese dann auch als HLS-Ausgänge neu verpacken können.">
+
+  <title>Transmuxing Anleitung</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Zencoder_Logo.svg" alt="Produkt-Logo" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Sprache wählen</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="Support"/> Kontaktieren Sie Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="Systemstatus"/> Systemstatus</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Nach Hause</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/encoding-guides/">Anleitungen zur Kodierung</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Transmuxing Anleitung</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+            <div class="col-sm-3 left-side-bar">
+        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+          <option value="">Weitere Brightcove Docs</option>
+          
+            
+              <option value="https://support.brightcove.com">Dokumentation Home</option>
+            
+          
+            
+              <option value="https://audience.support.brightcove.com">Brightcove Publikum</option>
+            
+          
+            
+              <option value="https://beacon.support.brightcove.com">Brightcove Leuchtfeuer</option>
+            
+          
+            
+              <option value="https://campaign.support.brightcove.com">Brightcove Kampagne</option>
+            
+          
+            
+              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
+            
+          
+            
+              <option value="https://live.support.brightcove.com">Brightcove Live</option>
+            
+          
+            
+              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+            
+          
+            
+              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+            
+          
+            
+              <option value="https://social.support.brightcove.com">Brightcove Social</option>
+            
+          
+            
+              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+            
+          
+            
+              <option value="https://player.support.brightcove.com">Brightcove Spieler-Entwicklung</option>
+            
+          
+            
+              <option value="https://apis.support.brightcove.com">APIs für Video Cloud-Plattform</option>
+            
+          
+            
+              <option value="https://sdks.support.brightcove.com">Videocloud-Geräte-SDKs</option>
+            
+          
+            
+              <option value="https://integrations.support.brightcove.com">Integrationen und CMS-Konnektoren</option>
+            
+          
+            
+              <option value="https://general.support.brightcove.com">Video Cloud — Allgemeine Informationen</option>
+            
+          
+            
+              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+            
+          
+        </select>
+
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Nach Hause</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/index.html">Erste Schritte <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/overview-zencoder.html">Überblick</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/quick-start-zencoder.html">Schnellstart</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/getting-api-key.html">Einen API-Schlüssel bekommen</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/output-settings.html">Ausgabe-Einstellungen</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/creating-multiple-outputs.html">Erstellen mehrerer Ausgaben</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general-information/index.html">Allgemeine Informationen <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general-information/faq-basics.html">Grundlagen</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-codecs-and-formats.html">Codecs Und Formate</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-encoding.html">Codierung</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-file-transfers.html">Datei-Transfers</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-zencoder-pricing.html">Zencoder Preisgestaltung</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-rate-limiting.html">Ratenbegrenzung</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/supported-video-and-audio-formats-codecs-and-containers.html">Unterstützte Video- und Audioformate</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/overview-context-aware-encoding.html">Übersicht: Kontextbezogenes Codieren</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/getting-notifications-when-videos-are-finished.html">Benachrichtigungen erhalten, wenn Videos fertig sind</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/how-zencoder-saves-your-files-when-uploads-fail.html">Wie Zencoder Dateien speichert, wenn Uploads fehlschlagen</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/using-zencoder-s3.html">Verwenden von Zencoder mit S3</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/using-zencoder-azure.html">Verwenden von Zencoder mit Azure</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/using-zencoder-google-cloud-platform.html">Verwenden von Zencoder mit Google Cloud Storage</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/index.html">Referenzen <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/references/reference.html">API Referenz</a></li>
+                  
+                
+                  
+                    <li><a href="/references/known-issues.html">Bekannte Probleme</a></li>
+                  
+                
+                  
+                    <li><a href="/references/release-notes.html">Produkt-Updates</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/encoding-settings/index.html">Encoding-Einstellungen <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/general/index.html">Allgemeine Einstellungen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/general/encoding-settings-job.html">Job-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/general/encoding-settings-general-output-settings.html">Allgemeine Ausgabe-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/general/cae-settings.html">CAE-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html">Einstellungen für bedingte Ausgaben</a></li>
+                        
+                        <li><a href="/encoding-settings/general/encoding-settings-notifications.html">Einstellungen für Benachrichtigungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/general-audio-video/index.html">Audio-/Videoeinstellungen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html">Audio-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html">Einstellungen für die Audiobearbeitung</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video.html">Video-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html">Einstellungen für die Videobearbeitung</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html">Broadcast-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html">Framerate Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html">Einstellungen zur Kurskontrolle</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html">Einstellungen für die Auflösung</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">Segmentierte Streaming-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html">Transmuxing Einstellungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/formats-codecs/index.html">Formate und Codec-Einstellungen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html">Format- und Codecs-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-aac.html">AAC-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html">FLV-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html">HDR-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html">H.264-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html">MP4-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html">VP6-Einstellungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/assets/index.html">Medien-Asset-Einstellungen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/assets/encoding-settings-captions.html">Untertitel-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/assets/encoding-settings-clips.html">Clip-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/assets/encoding-settings-thumbnails.html">Thumbnails Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/assets/encoding-settings-watermarks.html">Wasserzeichen-Einstellungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/content-protection/index.html">Content Protection-Einstellungen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/content-protection/encoding-settings-encryption.html">Verschlüsselungs-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/content-protection/encoding-settings-decryption.html">Einstellungen für die Entschlüsselung</a></li>
+                        
+                        <li><a href="/encoding-settings/content-protection/encoding-settings-drm.html">DRM-Einstellungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/sources-destinations/index.html">Quellen/Zieleinstellungen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html">S3-Einstellungen</a></li>
+                        
+                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-aspera.html">Aspera-Einstellungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/encoding-guides/index.html">Codierungs-Guides <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/encoding-guides/advanced-audio-mapping-guide.html">Leitfaden für Audio-Mapping</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/as11-mxf.html">AS-11-mXF-Anleitung</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/avc-intra-guide.html">AVC-Intra-Handbuch</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/cae-guide.html">CAE-Leitfaden</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/creating-mp4-and-hls-outputs-together.html">Transmuxing Anleitung</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/dash-streaming-and-playlists.html">DASH-Streaming und Wiedergabelisten</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/h264-advanced-guide.html">H.264 Advanced Guide</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/hdr10-video-output.html">Unterstützte HDR-Videoformate</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/hevch265-guide.html">Leitfaden HEVC/H.265</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/highwinds-smil.html">Hochwind-SMIL-Führer</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/html5-encoding.html">HTML5-Codierung</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/http-live-segmented-streaming-and-playlists.html">HLS-Streaming und Wiedergabelisten</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/http-live-streaming-using-fragmented-mp4.html">HLS mit fragmentiertem MP4</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/iosmobile-encoding.html">Leitfaden zur iOS-/Mobile-Codierung</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/microsoft-smooth-streaming.html">Microsoft reibungsloses Streaming</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/using-quality-based-encoding-modes-streaming-video.html">Qualitätsbasierte Kodierungsmodi für Streaming</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/vp6-advanced-guide.html">VP6-Handbuch für Fortgeschrittene</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/vp9-guide.html">VP9-Leitfaden</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/error-troubleshooting/index.html">Fehler/Problembehebung <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/error-troubleshooting/problems.html">Häufige Probleme</a></li>
+                  
+                
+                  
+                    <li><a href="/error-troubleshooting/region-outages.html">Ausfälle in der Region</a></li>
+                  
+                
+                  
+                    <li><a href="/error-troubleshooting/when-should-i-retry-failed-jobs.html">Wann sollten fehlgeschlagene Jobs erneut versucht werden</a></li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/error-troubleshooting/error-codes/index.html">Fehlercodes <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-akamainetstoragefilesizeerror.html">akamainetstorageFilesizeError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-checksummismatcherror.html">checkSummMatcherror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-dimensiontoosmallerror.html">dimensionToosMallerror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-downloadaccessdeniederror.html">DownloadAccessDeniederror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-downloadfailureerror.html">downloadFailureError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-downloadtimeouterror.html">downloadTimeoutError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-filenotfounderror.html">FileNotFounderROR-</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">filePermanentlyMovederRor</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">InaccurateDurationError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-incompatiblewithdynamicprofileserror.html">inkompatibleWithDynamicProfilesError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-inputfilenotfound.html">InputFileNotFound</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidaccesskeyiderror.html">InvalidAccessKeyiderRor</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidaudiosettingserror.html">InvalidaudioSettingSError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidcodeccombinationerror.html">InvalidCodecCombinationError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invaliddownloadedfiletypeerror.html">InvalidDownloadedFileTypeError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidencryptionsettingserror.html">InvalidenCryptionsettingSerror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidfilepatherror.html">InvalidFilePathError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidformatcodecerror.html">InvalidFormatCodecError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidframerateerror.html">InvalidFrameReateError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidusernameorpassworderror.html">InvalidUserNameOrPasswordError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideobitrateerror.html">InvalidVideoBITRATEERROR-Datei</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideosettingserror.html">InvalidVideoSettingSError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-nomediaerror.html">nomediaError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-quicktimereferenceerror.html">QuickTimeReferenceError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-remoteserverproblemerror.html">remoteServerproblemerror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-rtmpauthfailederror.html">rtmpAuthFailederRor</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-rtmpmaxstreamsxidreached.html">rtmpMaxStreamsXiderreicht</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-rtmpstreamnamealreadyinuse.html">rtmpStreamNameAlreadyInUse</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-s3bucketnotfounderror.html">s3BucketNotFounderror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-segmentingerror.html">segmentingError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-skippedsourceerror.html">SkippedSourceError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-thumbnailerror.html">thumbnailError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-transcodingerror.html">transcodingError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteegroupurlerror.html">Übertragen። InvalidGranteegroupUrleRor</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteeiderror.html">Übertragen። InvalidGranteIderRor</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-truncatedfileerror.html">TruncatedFileError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unabletocreatedynamicprofileserror.html">UnableToCreatedYNamicProfilesError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteddownloadproblemerror.html">unexpectedDownloadproblemerror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedffmpegresult.html">UnexpectedffmpegResult</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedmplayerresult.html">UnexpectedmPlayerResult</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedprogenresult.html">UnexpectedProgenResult</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedresulterror.html">unexpectedRESULTERROR</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteduploadproblemerror.html">unexpectedUploadproblemerror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedx264result.html">unexpectedX264Ergebnis</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unreadablefileerror.html">UnreadableFileError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedcodecerror.html">UnsupportedCodecError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencodingerror.html">UnsupportedENCodingError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencryptionerror.html">UnsupportedEncryptionError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedtranscodecombinationerror.html">UnsupportedTranscodeCombinationError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-uploadaccessdeniederror.html">UploadAccessDeniederror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-uploadfailureerror.html">uploadFailureError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-uploadservernotfounderror.html">uploadServerNotFounderror</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-uploadtimeouterror.html">uploadTimeoutError</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-workertimeouterror.html">WorkerTimeoutError</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/integration/index.html">Integration <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/integration/faq-integration-libraries.html">Integrations-Biblioth</a></li>
+                  
+                
+                  
+                    <li><a href="/integration/100-integration-reliability.html">100% Zuverlässigkeit bei der Integration</a></li>
+                  
+                
+                  
+                    <li><a href="/integration/test-jobs-and-integration-mode.html">Jobs testen und Integrationsmodus</a></li>
+                  
+                
+                  
+                    <li><a href="/integration/using-read-only-api-keys.html">Verwenden von schreibgeschützten API-Schlüsseln</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">unterstützung <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Anzeigen der Seite „Systemstatus von Brightcove“</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Kontakt mit dem Vertrieb</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Einen Supportfall öffnen</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menü „Navigation"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Inhalt der Seite</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="in neuem Tab öffnen" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<h1>Transmuxing Anleitung</h1>
+<article class="bcls-article">
+  <summary>Dieses Thema erklärt <strong>Transmuxing</strong> Ein Prozess, mit dem Sie Ihre Videos in MP4 codieren und diese dann auch als HLS-Ausgaben neu verpacken können.</summary>
+
+  <section class="bcls-section">
+    <h2 id="Overview">Übersicht</h2>
+
+    <p>Mit Zencoder können Sie Ihre Videos in MP4 codieren und diese dann auch als HLS-Ausgänge neu verpacken. Dies wird als "Transmuxing" (anstatt Transcodieren) bezeichnet. Durch Transmuxing werden vorhandene MP4-Videos in die für HTTP Live Streaming (HLS) erforderlichen MPEG TS-Segmente neu gepackt, ohne dass die Videodateien neu codiert werden müssen. Mithilfe abhängiger Ausgaben können Sie Ihre H.264-Dateien sowie die segmentierten Dateien in einem einzigen Job erstellen und so eine schnellere Abwicklung zu geringeren Kosten erzielen. Transmux-Ausgänge werden mit 1/4 der Codierungskosten berechnet. Der resultierende Job erzeugt 6 Ausgaben - 2 werden zum regulären Preis Ihres Kontos berechnet, 3 transmuxierte Dateien zu 1/4 der Codierungskosten und 1 Wiedergabeliste, die kostenlos ist.</p>
+
+    <p>Dazu erstellen Sie einen einzelnen Job mit zwei Hauptausgabesätzen (plus den Wiedergabelisten). Der erste Satz von Ausgaben sind normale H.264 / AAC MP4-Dateien mit einigen speziellen Einstellungen, damit sie als Quelldateien für HLS-Ausgaben verwendet werden können. Der zweite Satz von Ausgängen verwendet diese MP4-Dateien als "Quell" -Eingänge und überträgt ihren Inhalt auf HLS-Ausgänge. Da es sich um abhängige Ausgaben handelt, warten sie, bis die entsprechende Quelle fertig ist, bevor sie verarbeitet werden.</p>
+
+    <p>Der Schlüsselteil des Prozesses ist die Verwendung <a href="/encoding-settings/general/encoding-settings-general-output-settings.html#source"><code translate="No">source</code></a> , eine neue Option in V2 der Zencoder-API. Die Quelle weist eine Ausgabe an, die von einer anderen Ausgabe im Job erstellte Datei anstelle der Eingabedatei für die Verarbeitung zu verwenden. In dieser Situation erstellt Zencoder H.264-Dateien basierend auf der Eingabedatei mit den angeforderten Bitraten. Wenn jede dieser Ausgaben beendet ist, wird aus der Ausgabe eine segmentierte Version erstellt.</p>
+
+    <aside class="bcls-aside bcls-aside--information">Hinweis: Es gibt keine Möglichkeit, sicherzustellen, dass die Wiedergabe reibungslos verläuft, wenn Sie <strong>Kombinieren Sie Transmux- und Transcode-Ausgänge in einer Wiedergabeliste</strong>. Es wird empfohlen, die Wiedergaben auf die gleiche Weise zu codieren.</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="h264_outputs">Die H.264-Ausgänge</h2>
+
+    <p>Wir beginnen mit der Erstellung von 2 H.264-Dateien, die auf hohe und niedrige Bitraten abzielen.</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "label": "low",
+    "format": "mp4",
+    "video_bitrate": 200,
+    "decoder_bitrate_cap": 300,
+    "decoder_buffer_size": 1200,
+    "audio_sample_rate": 44100,
+    "height": "288",
+    "url": "s3://example-bucket/low.mp4",
+    "h264_reference_frames": 1,
+    "forced_keyframe_rate": "0.1",
+    "audio_bitrate": 56,
+    "decimate": 2
+},
+{
+    "label": "high",
+    "format": "mp4",
+    "video_bitrate": 1000,
+    "decoder_bitrate_cap": 1500,
+    "decoder_buffer_size": 6000,
+    "audio_sample_rate": 44100,
+    "height": "432",
+    "url": "s3://example-bucket/high.mp4",
+    "h264_reference_frames": "auto",
+    "h264_profile": "main",
+    "forced_keyframe_rate": "0.1",
+    "audio_bitrate": 56
+}</code></pre>
+
+    <p>Die aus diesen Ausgängen resultierenden Dateien können auf einer Vielzahl von Geräten abgespielt werden. Jedes zielt auf eine andere Bitrate und Auflösung ab, sodass Benutzern die entsprechende Datei gesendet werden kann. Jedes eignet sich auch zur Segmentierung für HTTP Live Streaming und als adaptiver Bitraten-Stream.</p>
+
+    <p>Einige Optionen in der obigen Anfrage zu beachten:</p>
+
+    <ul>
+      <li><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#forced-keyframe-rate"><code translate="No">forced_keyframe_rate</code></a> bis 0,1. Dadurch wird das Video alle 10 Sekunden mit einem Keyframe versehen. Die segmentierten Dateien sind 10 Sekunden lang, wodurch sichergestellt wird, dass dort jedes Segment mit einem Keyframe beginnt.</li>
+      <li><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#decoder-bitrate-cap"><code translate="No">decoder_bitrate_cap</code></a> ist auf das 1,5-fache der Zielbitrate der Datei eingestellt. <a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#decoder-buffer-size"><code translate="No">decoder_buffer_size</code></a> ist auf das 3,5-fache bis 5-fache der Zielbitrate der Datei eingestellt. Diese Einstellungen tragen dazu bei, eine konsistente Bitrate in der gesamten Datei beizubehalten, sodass die segmentierten Segmente in Größe und Bitrate nicht zu sehr variieren.</li>
+    </ul>
+    <p>Nachdem die H.264-Dateien erstellt wurden, können der Anforderung zum Erstellen segmentierter HTTP Live Streaming-Dateien aus der Quelle zusätzliche Ausgaben hinzugefügt werden, ohne dass eine zusätzliche Codierung erforderlich ist.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Segmented_Outputs">Segmentierte Ausgaben</h2>
+
+    <p>Jedes der oben genannten H.264-Video- und Audioausgänge verfügt über <a href="/encoding-settings/general/encoding-settings-general-output-settings.html#label"><code translate="No">labels</code></a> in ihren API-Optionen. Diese Etiketten können in Verbindung mit dem verwendet werden <a href="/encoding-settings/general/encoding-settings-general-output-settings.html#source"><code translate="No">source</code></a> Option, um Zencoder anzuweisen, das von der Ausgabe erstellte Video mit der angegebenen Bezeichnung anstelle der Eingabedatei zu verwenden. Da die H.264-Dateien bereits gute Einstellungen für HLS haben, ist keine zusätzliche Codierung erforderlich.</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "source": "low",
+    "format": "ts",
+    "copy_audio": "true",
+    "copy_video": "true",
+    "url": "s3://example-bucket/hls-low/hls-low.m3u8",
+    "label": "hls-low",
+    "type": "segmented"
+}
+{
+    "source": "high",
+    "format": "ts",
+    "copy_audio": "true",
+    "copy_video": "true",
+    "url": "s3://example-bucket/hls-high/hls-high.m3u8",
+    "label": "hls-high",
+    "type": "segmented"
+}
+{
+    "streams": [
+    {
+        "path": "hls-low/hls-low.m3u8",
+        "bandwidth": 256
+    },
+    {
+        "path": "hls-high/hls-high.m3u8",
+        "bandwidth": 1056
+    }
+    ],
+    "type": "playlist",
+    "url": "s3://example-bucket/playlist.m3u8"
+}</code></pre>
+
+    <p>Die aus diesen Ausgaben resultierenden Dateien sind segmentierte Ausgaben, die auf unterschiedliche Bandbreiten abzielen, sowie eine Wiedergabelistendatei, damit das Wiedergabegerät die verfügbaren Streams kennt.</p>
+
+    <p>Jede segmentierte Ausgabe enthält die <a href="/encoding-settings/general/encoding-settings-general-output-settings.html#source"><code translate="No">source</code></a> und gibt einen der zuvor aufgeführten Ausgänge an. Dazu gehört auch die <a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html#copy-audio"><code translate="No">copy_audio</code></a> und <a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html#copy-video"><code translate="No">copy_video</code></a> Optionen, die Zencoder anweisen, die Audio- und Videostreams aus der Quelldatei zu verwenden und sie in den neuen Container neu zu packen, anstatt sie zu transkodieren. Schließlich geben die Ausgänge auch a an <a href="/encoding-settings/general/encoding-settings-general-output-settings.html#type"><code translate="No">type</code></a> von segmentiert und a <a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#format"><code translate="No">format</code></a> von ts plus a <a href="/encoding-settings/general/encoding-settings-general-output-settings.html#url"><code translate="No">url</code></a> mit einer Erweiterung von .m3u8, damit Zencoder segmentierte HLS-Dateien erstellen kann.</p>
+
+    <p>Schließlich wird auch eine Wiedergabeliste generiert, die auf jede der segmentierten Ausgaben verweist. Beachten Sie, dass die erste Datei, auf die in der Wiedergabeliste verwiesen wird, das Video mit niedriger Bitrate ist. Das Gerät, das das Video abspielt, lädt im Allgemeinen den ersten in der Wiedergabeliste aufgeführten Stream und wechselt bei Bedarf zu anderen Streams. Dies bedeutet, dass die ersten 10 Sekunden der Wiedergabe diesen Stream verwenden. Danach verfügt das Gerät über genügend Informationen, um den geeigneten Stream für die Wiedergabe auszuwählen.</p>
+
+    <p><strong>HINWEISE</strong></p>
+
+    <ul>
+      <li>Die HLS-Wiedergabelistengenerierung verwendet derzeit keine Informationen aus den anderen Ausgaben im Job, sondern ist lediglich eine Möglichkeit, auf einfache Weise eine korrekt formatierte Wiedergabeliste mit adaptiver Bitrate zu erstellen und zusammen mit den anderen Dateien hochladen zu lassen.</li>
+      <li>Während iOS-Geräte die erstellte Wiedergabeliste mit adaptiver Bitrate wiedergeben, wird VLC aufgrund von Fehlern bei der Verarbeitung relativer URLs nicht angezeigt. Es wird nach den Segmentdateien im selben Verzeichnis wie die Playlist-Datei und nicht im Verzeichnis der Manifestdatei suchen.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Full_request">Vollständige Anfrage</h2>
+
+    <p>Nachdem wir alle wichtigen Ausgabeabschnitte durchgesehen haben, lassen Sie uns sie zu einer einzigen API-Anforderung zusammenfassen.</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "input": "s3://zencodertesting/test.mov",
+    "outputs": [
+    {
+        "label": "low",
+        "format": "mp4",
+        "video_bitrate": 200,
+        "decoder_bitrate_cap": 300,
+        "decoder_buffer_size": 1200,
+        "audio_sample_rate": 44100,
+        "height": "288",
+        "url": "s3://example-bucket/low.mp4",
+        "h264_reference_frames": 1,
+        "forced_keyframe_rate": "0.1",
+        "audio_bitrate": 56,
+        "decimate": 2
+    },
+    {
+        "label": "high",
+        "format": "mp4",
+        "video_bitrate": 1000,
+        "decoder_bitrate_cap": 1500,
+        "decoder_buffer_size": 6000,
+        "audio_sample_rate": 44100,
+        "height": "432",
+        "url": "s3://example-bucket/high.mp4",
+        "h264_reference_frames": "auto",
+        "h264_profile": "main",
+        "forced_keyframe_rate": "0.1",
+        "audio_bitrate": 56
+    },
+    {
+        "source": "low",
+        "format": "ts",
+        "copy_audio": "true",
+        "copy_video": "true",
+        "url": "s3://example-bucket/hls-low/hls-low.m3u8",
+        "label": "hls-low",
+        "type": "segmented"
+    }
+    {
+        "source": "high",
+        "format": "ts",
+        "copy_audio": "true",
+        "copy_video": "true",
+        "url": "s3://example-bucket/hls-high/hls-high.m3u8",
+        "label": "hls-high",
+        "type": "segmented"
+    }
+    {
+        "streams": [
+        {
+            "path": "hls-low/hls-low.m3u8",
+            "bandwidth": 256
+        },
+        {
+            "path": "hls-high/hls-high.m3u8",
+            "bandwidth": 1056
+        }
+        ],
+        "type": "playlist",
+        "url": "s3://example-bucket/playlist.m3u8"
+    }
+    ]
+}</code></pre>
+  </section>
+</article>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Inhalt der Seite</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support-Service</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">Systemstatus</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Kontakt mit dem Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">DOKUMENTATION</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Schulungen</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Online-Kurse</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">Für einen Kurs anmelden</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Brightcove Universität</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Kontaktiere uns</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. Alle Rechte vorbehalten.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Allgemeine Geschäftsbedingungen</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.677.0.min.js"></script> -->
+</body>
+
+</html>
