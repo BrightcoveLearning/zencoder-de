@@ -1,666 +1,19 @@
-﻿<!doctype html>
-<html lang="de">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In diesem Thema werden Optionen für die Audiomappung für mehrere Audiospuren erläutert.">
-
-  <title>Leitfaden für Audio-Mapping</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Zencoder_Logo.svg" alt="Produkt-Logo" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Sprache wählen</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="Support"/> Kontaktieren Sie Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="Systemstatus"/> Systemstatus</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Nach Hause</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/encoding-guides/">Anleitungen zur Kodierung</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Leitfaden für Audio-Mapping</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Weitere Brightcove Docs</option>
-          
-            
-              <option value="https://support.brightcove.com">Dokumentation Home</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Brightcove Publikum</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Brightcove Leuchtfeuer</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Brightcove Kampagne</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Brightcove Spieler-Entwicklung</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">APIs für Video Cloud-Plattform</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">Videocloud-Geräte-SDKs</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">Integrationen und CMS-Konnektoren</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">Video Cloud — Allgemeine Informationen</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Nach Hause</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">Erste Schritte <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/getting-started/overview-zencoder.html">Überblick</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/quick-start-zencoder.html">Schnellstart</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/getting-api-key.html">Einen API-Schlüssel bekommen</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/output-settings.html">Ausgabe-Einstellungen</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/creating-multiple-outputs.html">Erstellen mehrerer Ausgaben</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general-information/index.html">Allgemeine Informationen <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general-information/faq-basics.html">Grundlagen</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-codecs-and-formats.html">Codecs Und Formate</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-encoding.html">Codierung</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-file-transfers.html">Datei-Transfers</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-zencoder-pricing.html">Zencoder Preisgestaltung</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-rate-limiting.html">Ratenbegrenzung</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/supported-video-and-audio-formats-codecs-and-containers.html">Unterstützte Video- und Audioformate</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/overview-context-aware-encoding.html">Übersicht: Kontextbezogenes Codieren</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/getting-notifications-when-videos-are-finished.html">Benachrichtigungen erhalten, wenn Videos fertig sind</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/how-zencoder-saves-your-files-when-uploads-fail.html">Wie Zencoder Dateien speichert, wenn Uploads fehlschlagen</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-s3.html">Verwenden von Zencoder mit S3</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-azure.html">Verwenden von Zencoder mit Azure</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-google-cloud-platform.html">Verwenden von Zencoder mit Google Cloud Storage</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/references/index.html">Referenzen <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/references/reference.html">API Referenz</a></li>
-                  
-                
-                  
-                    <li><a href="/references/known-issues.html">Bekannte Probleme</a></li>
-                  
-                
-                  
-                    <li><a href="/references/release-notes.html">Produkt-Updates</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/encoding-settings/index.html">Encoding-Einstellungen <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/general/index.html">Allgemeine Einstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-job.html">Job-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-general-output-settings.html">Allgemeine Ausgabe-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general/cae-settings.html">CAE-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html">Einstellungen für bedingte Ausgaben</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-notifications.html">Einstellungen für Benachrichtigungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/general-audio-video/index.html">Audio-/Videoeinstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html">Audio-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html">Einstellungen für die Audiobearbeitung</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video.html">Video-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html">Einstellungen für die Videobearbeitung</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html">Broadcast-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html">Framerate Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html">Einstellungen zur Kurskontrolle</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html">Einstellungen für die Auflösung</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">Segmentierte Streaming-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html">Transmuxing Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/formats-codecs/index.html">Formate und Codec-Einstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html">Format- und Codecs-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-aac.html">AAC-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html">FLV-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html">HDR-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html">H.264-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html">MP4-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html">VP6-Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/assets/index.html">Medien-Asset-Einstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-captions.html">Untertitel-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-clips.html">Clip-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-thumbnails.html">Thumbnails Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-watermarks.html">Wasserzeichen-Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/content-protection/index.html">Content Protection-Einstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-encryption.html">Verschlüsselungs-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-decryption.html">Einstellungen für die Entschlüsselung</a></li>
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-drm.html">DRM-Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/sources-destinations/index.html">Quellen/Zieleinstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html">S3-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-aspera.html">Aspera-Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/encoding-guides/index.html">Codierungs-Guides <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/encoding-guides/advanced-audio-mapping-guide.html">Leitfaden für Audio-Mapping</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/as11-mxf.html">AS-11-mXF-Anleitung</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/avc-intra-guide.html">AVC-Intra-Handbuch</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/cae-guide.html">CAE-Leitfaden</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/creating-mp4-and-hls-outputs-together.html">Transmuxing Anleitung</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/dash-streaming-and-playlists.html">DASH-Streaming und Wiedergabelisten</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/h264-advanced-guide.html">H.264 Advanced Guide</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/hdr10-video-output.html">Unterstützte HDR-Videoformate</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/hevch265-guide.html">Leitfaden HEVC/H.265</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/highwinds-smil.html">Hochwind-SMIL-Führer</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/html5-encoding.html">HTML5-Codierung</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/http-live-segmented-streaming-and-playlists.html">HLS-Streaming und Wiedergabelisten</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/http-live-streaming-using-fragmented-mp4.html">HLS mit fragmentiertem MP4</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/iosmobile-encoding.html">Leitfaden zur iOS-/Mobile-Codierung</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/microsoft-smooth-streaming.html">Microsoft reibungsloses Streaming</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/using-quality-based-encoding-modes-streaming-video.html">Qualitätsbasierte Kodierungsmodi für Streaming</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/vp6-advanced-guide.html">VP6-Handbuch für Fortgeschrittene</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/vp9-guide.html">VP9-Leitfaden</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/error-troubleshooting/index.html">Fehler/Problembehebung <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/error-troubleshooting/problems.html">Häufige Probleme</a></li>
-                  
-                
-                  
-                    <li><a href="/error-troubleshooting/region-outages.html">Ausfälle in der Region</a></li>
-                  
-                
-                  
-                    <li><a href="/error-troubleshooting/when-should-i-retry-failed-jobs.html">Wann sollten fehlgeschlagene Jobs erneut versucht werden</a></li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/error-troubleshooting/error-codes/index.html">Fehlercodes <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-akamainetstoragefilesizeerror.html">akamainetstorageFilesizeError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-checksummismatcherror.html">checkSummMatcherror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-dimensiontoosmallerror.html">dimensionToosMallerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadaccessdeniederror.html">DownloadAccessDeniederror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadfailureerror.html">downloadFailureError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadtimeouterror.html">downloadTimeoutError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-filenotfounderror.html">FileNotFounderROR-</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">filePermanentlyMovederRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">InaccurateDurationError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-incompatiblewithdynamicprofileserror.html">inkompatibleWithDynamicProfilesError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inputfilenotfound.html">InputFileNotFound</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidaccesskeyiderror.html">InvalidAccessKeyiderRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidaudiosettingserror.html">InvalidaudioSettingSError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidcodeccombinationerror.html">InvalidCodecCombinationError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invaliddownloadedfiletypeerror.html">InvalidDownloadedFileTypeError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidencryptionsettingserror.html">InvalidenCryptionsettingSerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidfilepatherror.html">InvalidFilePathError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidformatcodecerror.html">InvalidFormatCodecError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidframerateerror.html">InvalidFrameReateError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidusernameorpassworderror.html">InvalidUserNameOrPasswordError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideobitrateerror.html">InvalidVideoBITRATEERROR-Datei</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideosettingserror.html">InvalidVideoSettingSError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-nomediaerror.html">nomediaError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-quicktimereferenceerror.html">QuickTimeReferenceError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-remoteserverproblemerror.html">remoteServerproblemerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpauthfailederror.html">rtmpAuthFailederRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpmaxstreamsxidreached.html">rtmpMaxStreamsXiderreicht</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpstreamnamealreadyinuse.html">rtmpStreamNameAlreadyInUse</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-s3bucketnotfounderror.html">s3BucketNotFounderror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-segmentingerror.html">segmentingError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-skippedsourceerror.html">SkippedSourceError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-thumbnailerror.html">thumbnailError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transcodingerror.html">transcodingError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteegroupurlerror.html">Übertragen። InvalidGranteegroupUrleRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteeiderror.html">Übertragen። InvalidGranteIderRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-truncatedfileerror.html">TruncatedFileError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unabletocreatedynamicprofileserror.html">UnableToCreatedYNamicProfilesError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteddownloadproblemerror.html">unexpectedDownloadproblemerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedffmpegresult.html">UnexpectedffmpegResult</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedmplayerresult.html">UnexpectedmPlayerResult</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedprogenresult.html">UnexpectedProgenResult</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedresulterror.html">unexpectedRESULTERROR</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteduploadproblemerror.html">unexpectedUploadproblemerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedx264result.html">unexpectedX264Ergebnis</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unreadablefileerror.html">UnreadableFileError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedcodecerror.html">UnsupportedCodecError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencodingerror.html">UnsupportedENCodingError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencryptionerror.html">UnsupportedEncryptionError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedtranscodecombinationerror.html">UnsupportedTranscodeCombinationError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadaccessdeniederror.html">UploadAccessDeniederror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadfailureerror.html">uploadFailureError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadservernotfounderror.html">uploadServerNotFounderror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadtimeouterror.html">uploadTimeoutError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-workertimeouterror.html">WorkerTimeoutError</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/integration/index.html">Integration <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/integration/faq-integration-libraries.html">Integrations-Biblioth</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/100-integration-reliability.html">100% Zuverlässigkeit bei der Integration</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/test-jobs-and-integration-mode.html">Jobs testen und Integrationsmodus</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/using-read-only-api-keys.html">Verwenden von schreibgeschützten API-Schlüsseln</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">unterstützung <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">Anzeigen der Seite „Systemstatus von Brightcove“</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Kontakt mit dem Vertrieb</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">Einen Supportfall öffnen</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menü „Navigation"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Inhalt der Seite</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="in neuem Tab öffnen" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
-<h1>Leitfaden für Audio-Mapping</h1>
+---
+title: Beschreibung des Audio Mapping-Handbuchs: In diesem Thema werden Audiozuordnungsoptionen für mehrere Audiospuren erläutert.
+parent: Encoding Guides
+---
+ <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <summary>In diesem Thema werden Optionen für die Audiomappung für mehrere Audiospuren erläutert.</summary>
+  <summary>{{ page.description }}</summary>
 
   <section class="bcls-section">
     <h2 id="Introduction">Einführung</h2>
 
-    <p>Es ist üblich, dass Bearbeitungssysteme Videodateien ausgeben, die mehrere Audiospuren enthalten - entweder für Surround-Sound-Audio-, Archiv- oder mehrsprachige Szenarien. Mit Zencoder können Eingangsdateien, die mehrere Audiospuren enthalten, auf eine einzige Audiospur am Ausgang abgebildet oder gemischt werden. Diese Optionen können beispielsweise kombiniert werden, um 6 diskrete Mono-PCM-Audiospuren von einer Eingabedatei in eine einzige 5.1-Surround-Sound-Audiospur an einem Ausgang abzubilden.</p>
+    <p>Bei Bearbeitungssystemen werden häufig Videodateien ausgegeben, die mehrere Audiospuren enthalten - entweder für Surround-Audio-, Archivierungs- oder mehrsprachige Szenarien. Mit Zencoder können Eingabedateien, die mehrere Audiospuren enthalten, auf eine einzelne Audiospur am Ausgang abgebildet oder gemischt werden. Diese Optionen können beispielsweise kombiniert werden, um 6 diskrete Mono-PCM-Audiospuren aus einer Eingabedatei in eine einzelne 5.1-Surround-Sound-Audiospur an einem Ausgang zuzuordnen.</p>
 
-    <p>In diesem Handbuch werden zwei Optionen vorgestellt: <code translate="No">input_audio_channels</code> und mit denen gesteuert werden kann <code translate="No">output_audio_channels</code> , wie Audiospuren und Kanäle aus einer Eingabedatei in die Ausgabedatei abgebildet werden.</p>
+    <p>In diesem Handbuch werden zwei Optionen vorgestellt: <code translate="No">input_audio_channels</code> und <code translate="No">output_audio_channels</code> Hiermit können Sie steuern, wie Audiospuren und Kanäle aus einer Eingabedatei in die Ausgabedatei abgebildet werden.</p>
 
-    <h3>Unterstützte Eingangs-Audiok</h3>
+    <h3>Unterstützte Audio-Eingangskanäle</h3>
 
     <p>Die folgenden Audiokanäle werden für den Import unterstützt:</p>
 
@@ -672,12 +25,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li>BL</li>
       <li>BR</li>
       <li>Lt (FL-Matrix)</li>
-      <li>Rt (FR-Matrix)</li>
+      <li>RT (FR-Matrix)</li>
     </ul>
   </section>
   <section class="bcls-section">
-    <h2 id="Multiple_outputs_from_source_multiple_tracks">Erstellen Sie mehrere Ausgaben von einer Quelle mit mehreren Audiospuren</h2>
-    <p>Ein ziemlich häufiger Anwendungsfall ist ein Quellvideo mit mehreren Audiospuren, und Sie möchten mehrere Audiodateien mit jeweils einer der Audiospuren ausgeben. Hier ist der beste Weg, um die Ausgaben dafür zu konfigurieren:</p>
+    <h2 id="Multiple_outputs_from_source_multiple_tracks">Erstellen Sie mehrere Ausgänge einer Quelle mit mehreren Audiospuren</h2>
+    <p>Ein ziemlich häufiger Anwendungsfall besteht darin, ein Quellvideo mit mehreren Audiospuren zu haben, und Sie möchten mehrere Audiodateien ausgeben, von denen jede eine der Audiospuren enthält. Hier ist der beste Weg, um die Ausgänge dafür zu konfigurieren:</p>
 <pre class="line-numbers"><code class="language-json" translate="No">outputs: [
   {
   label: "Output 1",
@@ -702,28 +55,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   } ... </code></pre>
   </section>
   <section class="bcls-section">
-    <h2 id="Audio_mapping_options">Optionen für die Audio-Zuordnung</h2>
+    <h2 id="Audio_mapping_options">Audio-Mapping-Optionen</h2>
 
     <ul>
-      <li><strong><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html#input_audio_channels">input_audio_channels</a></strong>: Legen Sie das Layout der Audiospuren zu Kanälen für den Eingang fest.</li>
-      <li><strong><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html#output_audio_channels">output_audio_channels</a></strong>: Stellen Sie das Layout des Ausgangskanals ein.</li>
+      <li><strong><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html#input_audio_channels">input_audio_channels</a></strong>:: Stellen Sie das Layout der eingegebenen Audiospuren zu den Kanälen ein.</li>
+      <li><strong><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html#output_audio_channels">output_audio_channels</a></strong>:: Stellen Sie das Layout des Ausgangs-Audiokanals ein.</li>
     </ul>
-    <p>Die <code translate="No">input_audio_channels</code> Option kann verwendet werden, um einzelne Audiospuren oder Kanäle aus der Eingabedatei zu markieren, indem ihnen ein Kanalname gegeben wird, wie <code translate="No">FL</code> für den Kanal „vorne links“ in einer 5.1-Surround-Audiospur. Die folgenden Beispiele zeigen, wie Sie diese Option verwenden, um von 6 einzelnen Audiospuren zu einer einzelnen 5.1-Surround-Spur abzubilden.</p>
+    <p>Die <code translate="No">input_audio_channels</code> Option kann verwendet werden, um einzelne Audiospuren oder Kanäle aus der Eingabedatei zu kennzeichnen, indem ihnen ein Kanalnamen gegeben wird, <code translate="No">FL</code> z. B. vorne-Link-Kanal in einer 5.1-Surround-Audiospur. Die folgenden Beispiele zeigen, wie Sie diese Option verwenden, um von 6 einzelnen Audiospuren auf eine einzelne 5.1-Surround-Spur zuzuordnen.</p>
 
-    <p>Durch Festlegen der <code translate="No">output_audio_channels</code> Option kann das Kanallayout der Ausgabe-Audiospur angepasst werden. Wenn dies nicht festgelegt ist, wird die Standardanordnung für den Audiocodec verwendet.</p>
+    <p>Durch Einstellen der <code translate="No">output_audio_channels</code> Option kann das Kanallayout der ausgegebenen Audiospur angepasst werden. Wenn dies nicht festgelegt ist, wird die Standardanordnung für den Audio-Codec verwendet.</p>
 
-    <p>Die <code translate="No">output_audio_channels</code> Option kann auf zwei Arten verwendet werden: um einen Mixdown aller Kanäle in zu erstellen oder um eine Ausgabe mit Audiokanälen zu erstellen <code translate="No">input_audio_channels</code> , die einem benutzerdefinierten Ausgabekanal-Layout zugeordnet ist, ohne dass ein Mixing durchgeführt wird. Zencoder kann einen Stereo- oder Mono-Mixdown aus einer Audiospur mit Mehrkanal- oder Surround-Sound-Eingang erzeugen. Um einen Mixdown-Ausgang zu erstellen, setzen Sie diese Option entweder auf <strong>1</strong> (für Mono) oder <strong>2</strong> (für Stereo). Um ein benutzerdefiniertes Kanallayout zu erstellen, legen Sie diese Option auf ein Array von Track-IDs fest, die in der <code translate="No">input_audio_channels</code> Option definiert wurden. In den folgenden Beispielen finden Sie weitere Informationen.</p>
+    <p>Das <code translate="No">output_audio_channels</code> Die Option kann auf zwei Arten verwendet werden: um eine Abmischung aller Kanäle in zu erstellen <code translate="No">input_audio_channels</code> oder um eine Ausgabe mit Audiokanälen zu erstellen, die einem benutzerdefinierten Ausgabekanallayout zugeordnet sind, ohne dass ein Mischen durchgeführt wird. Zencoder kann aus einer Mehrkanal- oder Surround-Sound-Eingangs-Audiospur einen Stereo- oder Mono-Mixdown erzeugen. Um eine Mixdown-Ausgabe zu erstellen, setzen Sie diese Option auf eine der beiden Optionen <strong>1</strong> (für Mono) oder <strong>2</strong> (für Stereo). Um ein benutzerdefiniertes Kanallayout zu erstellen, setzen Sie diese Option auf ein Array von Spurkennungen, die im definiert wurden <code translate="No">input_audio_channels</code> Möglichkeit. Weitere Informationen finden Sie in den folgenden Beispielen.</p>
 
-    <p>Zencoder unterstützt derzeit <strong>Mono-</strong>, <strong>Stereo-</strong> und <strong>5.1-Kanal-Ausgabe-Audio</strong>. </p>
+    <p>Zencoder unterstützt derzeit <strong>Mono-</strong>, <strong>Stereo</strong> - und <strong></strong> 5.1-Kanal-Ausgangs-Audio.</p>
 
-    <p>Stereo-Mixdowns können aus Surround-Audio mit beiden Tasten erzeugt werden <code translate="No">input_audio_channels</code> und <code translate="No">output_audio_channels</code> Optionen. Durch <code translate="No">output_audio_channels</code> die Einstellung auf 2 ist es möglich, einen Stereo-Mixdown zu erstellen.</p>
+    <p>Stereo-Mixdowns können aus Surround-Sound-Audio erzeugt werden, indem beide verwendet werden <code translate="No">input_audio_channels</code> und <code translate="No">output_audio_channels</code> Optionen. Indem man es einstellt <code translate="No">output_audio_channels</code> bis 2 ist es möglich, eine Stereo-Abmischung zu erstellen.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="Example_Settings">Beispiel für Einstellungen</h2>
+    <h2 id="Example_Settings">Beispieleinstellungen</h2>
   </section>
   <h3>5.1 Surround Track von mehreren Mono-Tracks</h3>
 
-  <p>In diesem Beispiel werden einzelne Audiospuren den benannten Kanälen zugeordnet <code translate="No">FL, FR, FC, LFE, BL, BR</code> und eine einzige 5.1-Surround-Soundspur aus dem Mapping erstellt.</p>
+  <p>In diesem Beispiel werden einzelne Audiospuren den benannten Kanälen zugeordnet <code translate="No">FL, FR, FC, LFE, BL, BR</code> und aus dem Mapping eine einzelne 5.1-Surround-Soundspur erstellt.</p>
 
   <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -740,9 +93,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   }
 }</code></pre>
 
-  <h3>Stereo-Mixdown von einem Mapped 5.1-Surround-Track</h3>
+  <h3>Stereo Mixdown von einer abgebildeten 5.1-Surround-Spur</h3>
 
-  <p>Das folgende Beispiel zeigt, wie Sie einen Stereo-Mixdown aus der 5.1-Surround-Audiospur erstellen, die im obigen Beispiel erstellt wurde.</p>
+  <p>Das folgende Beispiel zeigt, wie ein Stereo-Mixdown aus der 5.1-Surround-Audiospur erstellt wird, die im obigen Beispiel erstellt wurde.</p>
 
   <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -760,9 +113,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   }
 }</code></pre>
 
-  <h3>Benutzerdefiniertes Audiokanal-L</h3>
+  <h3>Benutzerdefiniertes Audiokanallayout</h3>
 
-  <p>Die <code translate="No">output_audio_channels</code> Option kann verwendet werden, um zusätzlich zum Erstellen von Mixdowns ein benutzerdefiniertes Kanallayout zu erstellen. Im folgenden Beispiel wird ein Stereoausgang aus dem Front-Links- und Front-Rechts-Kanäle erstellt, wobei jedoch die Reihenfolge vertauscht wird, sodass der linke Kanal rechts ist und umgekehrt.</p>
+  <p>Das <code translate="No">output_audio_channels</code> Mit dieser Option können Sie zusätzlich zu Mixdowns auch ein benutzerdefiniertes Kanallayout erstellen. Im folgenden Beispiel wird ein Stereoausgang von den Kanälen vorne links und vorne rechts erstellt, wobei jedoch die Reihenfolge vertauscht wird, sodass sich der linke Kanal im rechten befindet und umgekehrt.</p>
 
   <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -782,7 +135,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
   <h3>Unterstützung mehrerer Sprachspuren</h3>
 
-  <p>Durch die Verwendung der <code translate="No">input_audio_channels</code> Option für eine Eingabe, die mehrere Sprachspuren enthält, ist es möglich, mehrere Ausgaben mit jeweils separaten Sprachspuren zu erstellen. Angenommen, eine Eingabedatei hatte 4 diskrete Audiospuren und dieser Titel 1 enthielt das englische (linke) Audio, Track 2 enthielt das englische (rechte) Audio, Track 3 enthielt das spanische (linke) Audio und Track 4 enthielt das spanische (rechte) Audio. Indem Sie den <code translate="No">input_audio_channels</code> Parameter für jede Ausgabe unterschiedlich definieren, ist es möglich, mehrere Sprachausgaben aus einer einzelnen Datei zu erstellen.</p>
+  <p>Mit dem <code translate="No">input_audio_channels</code> Option für eine Eingabe, die mehrere Sprachspuren enthält, ist es möglich, mehrere Ausgaben mit jeweils separaten Sprachspuren zu erstellen. Angenommen, eine Eingabedatei hatte 4 diskrete Audiospuren und Spur 1 enthielt das englische (links) Audio, Spur 2 enthielt das englische (rechts) Audio, Spur 3 enthielt das spanische (links) Audio und Spur 4 enthielt das spanische (rechts) Audio. Durch die Definition der <code translate="No">input_audio_channels</code> Parameter für jede Ausgabe unterschiedlich, ist es möglich, mehrere Sprachausgaben aus einer einzigen Datei zu erstellen.</p>
 
   <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -805,9 +158,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-  <h3>Benutzerdefiniertes Kanal-Mapping</h3>
+  <h3>Benutzerdefinierte Kanalzuordnung</h3>
 
-  <p>Das folgende Beispiel zeigt, wie ein vorhandener Stereo-Downmix aus einer Mediendatei extrahiert wird, in der die erste Audiospur sowohl einen 5.1-Surround-Mix als auch einen Stereo-Downmix (wo Stereopaar) enthält.</p>
+  <p>Das folgende Beispiel zeigt, wie ein vorhandenes Stereo-Downmix aus einer Mediendatei extrahiert wird, in der die erste Audiospur sowohl einen 5.1-Surround-Mix als auch einen Stereo-Downmix (wo Stereo-Paar) enthält.</p>
 
   <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -821,131 +174,3 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   }
 }</code></pre>
 </article>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Inhalt der Seite</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Brightcove Support-Service</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">Systemstatus</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Kontakt mit dem Support</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">DOKUMENTATION</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Schulungen</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Online-Kurse</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">Für einen Kurs anmelden</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Brightcove Universität</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">brightcove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Kontaktiere uns</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. Alle Rechte vorbehalten.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Allgemeine Geschäftsbedingungen</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.677.0.min.js"></script> -->
-</body>
-
-</html>

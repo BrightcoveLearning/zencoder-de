@@ -1,0 +1,151 @@
+---
+title: Beschreibung der Format- und Codec-Einstellungen: Dieses Thema enthält Details zu Codierungseinstellungen in Bezug auf Videoformate und Codecs.
+parent: Formats and Codec Settings 
+grandparent: Encoding Settings
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="format">Format</h2>
+    <code translate="No">format:String</code>
+
+    <p><strong>API-Versionen:</strong> V1, V2</p>
+
+    <p><strong>Elternteil:</strong> <a href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
+
+    <p><strong>Standard:</strong> Bestimmt durch den Ausgabedateinamen und dann den Video- oder Audio-Codec. Ansonsten: mp4 (für Standardausgaben); ts (für segmentierte Ausgänge).</p>
+
+    <p><strong>Gültige Werte:</strong> 3gp, aac, ac3, ec3, flv, m4f, mj2, mkv, mp3, mp4, mxf, ogg, ts, webm und wmv</p>
+
+    <p><strong>Kompatible Auftragstypen:</strong> Alle</p>
+
+    <p><strong>Beispiel:</strong> webm</p>
+
+    <p><strong>Beschreibung:</strong></p>
+
+    <p>Das zu verwendende Ausgabecontainerformat.</p>
+
+    <p>Beachten Sie, dass einige Container mehrere gültige Dateierweiterungen haben. In der Regel werden Namen wie „f4v“, „ogv“ und „m4v“ für Audio-/Videodateien verwendet, und „f4a“, „m4a“ und „Oga“ werden für Nur-Audiodateien verwendet, dies wird jedoch nicht erzwungen. In ähnlicher Weise werden "f4v" und "f4a" häufig für MP4-Inhalte verwendet, die für die Wiedergabe in Flash-Videos entwickelt wurden. Dies ist jedoch nur eine Konvention.</p>
+
+    <p>Kompatibilität:</p>
+
+    <ul>
+      <li>mp4 ist kompatibel mit <code translate="No">h264</code>(Standard) <code translate="No">hevc</code>, <code translate="No">mpeg4</code>, und <code translate="No">AV1</code> Video und aac (Standard), mp3, ac3 und eac3 Audio. Gültige Werte und Dateierweiterungen: mp4, m4a, m4v, f4v, f4a, m4b, m4r, f4b</li>
+      <li>m4f ist kompatibel mit <code translate="No">h264</code> und <code translate="No">hevc</code> Video und AAC, AC3 und EAC3 Audio.</li>
+      <li>ogg ist kompatibel mit <code translate="No">theora</code> Video und Vorbis Audio. Gültige Werte und Dateierweiterungen: ogg, oga, ogv, ogx</li>
+      <li>webm ist kompatibel mit vp8 (Standard), vp9 und AV1 Video und Vorbis Audio. Gültige Werte und Dateierweiterungen: webm</li>
+      <li>3gp ist kompatibel mit <code translate="No">mpeg4</code>(Standard) und <code translate="No">h264</code> Video sowie aac (Standard) und MP3-Audio. Gültige Werte und Dateierweiterungen: 3 gp, 3 gp2, 3 g2, 3 gpp, 3 gpp2. Beachten Sie, dass das 3gp-Format auch eine mp4-Dateierweiterung verwenden kann.</li>
+      <li>flv ist kompatibel mit vp6 (Standard) und <code translate="No">h264</code> Video sowie aac (Standard) und MP3-Audio. Gültige Werte und Dateierweiterungen: flv</li>
+      <li>ts ist kompatibel mit <code translate="No">h264</code> Video und aac (Standard), MP3 oder ac3 Audio. Gültige Werte und Dateierweiterungen: ts</li>
+      <li>mkv ist kompatibel mit <code translate="No">h264</code> Video und AAC (Standard), MP3, AC3 oder EAC3 Audio. Gültige Werte und Dateierweiterungen: mkv</li>
+      <li>wmv ist kompatibel mit wmv video und wma (standard) oder mp3 audio. Gültige Werte und Dateierweiterungen: wmv, wma</li>
+      <li>aac ist kompatibel mit aac audio und kein video. Gültige Werte und Dateierweiterungen: aac</li>
+      <li>mp3 ist mit MP3-Audio und ohne Video kompatibel. Gültige Werte und Dateierweiterungen: mp3</li>
+      <li>ac3 ist kompatibel mit ac3 audio und kein video. Gültige Werte und Dateierweiterungen: ac3</li>
+      <li>ec3 ist kompatibel mit eac3 audio und kein video. Gültige Werte und Dateierweiterungen: ec3</li>
+      <li>mj2 ist kompatibel mit <code translate="No">jp2</code> Video und AAC Audio. Gültige Werte und Dateierweiterungen: mj2, mjp2.</li>
+      <li>mxf ist kompatibel mit <code translate="No">h264</code> Video und PCM-Audio. Gültige Werte und Dateierweiterungen: mxf.</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "input": "s3://zencodertesting/test.mov",
+  "outputs": [
+    {
+      "format": "webm"
+    }
+  ]
+}</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="video_codec">video_codec</h2>
+    <code translate="No">video_codec:String</code>
+
+    <p><strong>API-Versionen:</strong> V1, V2</p>
+
+    <p><strong>Elternteil:</strong> <a href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
+
+    <p><strong>Standard:</strong> Bestimmt durch das Format, das Profil oder den <a href="#audio_codec">audio_codec</a>. <code translate="No">h264</code> wenn keine angegeben ist.</p>
+
+    <p><strong>Gültige Werte:</strong> <code translate="No">h264</code>, <code translate="No">hevc</code>, <code translate="No">av1</code>, <code translate="No">jp2</code>, <code translate="No">mpeg4</code>, <code translate="No">theora</code>, vp6, vp8, vp9 und wmv</p>
+
+    <p><strong>Kompatible Auftragstypen:</strong> Alle</p>
+
+    <p><strong>Beispiel:</strong> vp8</p>
+
+    <p><strong>Beschreibung:</strong></p>
+
+    <p>Der zu verwendende Ausgabe-Video-Codec. Zencoder unterstützt derzeit die folgenden Codecs: <code translate="No">h264</code>(Standard), <code translate="No">hevc</code>, <code translate="No">jp2</code>, <code translate="No">theora</code>, <code translate="No">vp6</code>, <code translate="No">vp8</code>, <code translate="No">vp9</code> <code translate="No">mpeg4</code>, und <code translate="No">wmv</code>.</p>
+
+    <p>Kompatibilität:</p>
+
+    <ul>
+      <li></li>
+      <li><code translate="No">h264</code> ist kompatibel mit <code translate="No">aac</code>(Standard) und <code translate="No">mp3</code> Audio und dem <code translate="No">mp4</code>(Standardeinstellung) <code translate="No">m4f</code>, <code translate="No">flv</code>, oder <code translate="No">3gp</code> Formate</li>
+      <li>hevc ist kompatibel mit aac (Standard) oder MP3-Audio und den MP4- oder M4F-Formaten.</li>
+      <li>vp9 ist kompatibel mit vorbis audio und dem webm format</li>
+      <li>vp8 ist kompatibel mit vorbis audio und dem webm format</li>
+      <li>vp6 ist kompatibel mit mp3 (Standard) oder aac audio und dem flv-Format</li>
+      <li>theora ist kompatibel mit vorbis audio und dem ogg format</li>
+      <li>mpeg4 ist kompatibel mit aac (Standard) und mp3 Audio sowie den Formaten mp4 (Standard) oder 3gp</li>
+      <li>wmv ist kompatibel mit wma (Standard) oder MP3-Audio und dem wmv-Format</li>
+      <li>jp2 ist kompatibel mit pcm audio und dem mj2 format.</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "input": "s3://zencodertesting/test.mov",
+  "outputs": [
+    {
+      "video_codec": "vp8"
+    }
+  ]
+}</code></pre>
+
+    <p><strong>Siehe auch:</strong> <a href="#audio_codec">Audio-Codec</a> und <a href="#format">Format</a></p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="audio_codec">audio_codec</h2>
+    <code translate="No">audio_codec:String</code>
+
+    <p><strong>API-Versionen:</strong> V1, V2</p>
+
+    <p><strong>Elternteil:</strong> <a href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
+
+    <p><strong>Standard:</strong> Bestimmt durch das Format, das Profil oder den <a href="#video_codec">video_codec</a>. aac, wenn keine angegeben ist.</p>
+
+    <p><strong>Gültige Werte:</strong> aac, ac3, amr, av1, eac3, mp3, pcm, vorbis und wma</p>
+
+    <p><strong>Kompatible Auftragstypen:</strong> Alle</p>
+
+    <p><strong>Beispiel:</strong> mp3</p>
+
+    <p><strong>Beschreibung:</strong></p>
+
+    <p>Der zu verwendende Audio-Codec. Der Standardcodec hängt vom ausgewählten Videocodec und Format ab.</p>
+
+    <p>Beachten Sie, dass MP3-Audio in einem MP4-Container neben H.264-Videoinhalten gültig ist, jedoch nicht in Quicktime wiedergegeben wird.</p>
+
+    <p>Kompatibilität:</p>
+
+    <ul>
+      <li>aac ist kompatibel mit <code translate="No">h264</code> Video (mp4-, m4f-, 3gp- oder flv-Format), <code translate="No">mpeg4</code> Video (mp4- oder 3gp-Format) und vp6 (flv-Format)</li>
+      <li>vorbis ist kompatibel mit vp8 video (webm format) und <code translate="No">theora</code> Video (Ogg-Format)</li>
+      <li>wma ist kompatibel mit wmv video und dem wmv format</li>
+      <li>mp3 ist kompatibel mit <code translate="No">h264</code> Video (mp4-, 3gp- oder flv-Format) und wmv-Video (wmv-Format). mp3 und mp4 werden in Quicktime nicht wiedergegeben <code translate="No">h264</code> </li>
+      <li>pcm ist kompatibel mit <code translate="No">h264</code> Video und das MXF-Format.</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "input": "s3://zencodertesting/test.mov",
+  "outputs": [
+    {
+      "audio_codec": "mp3"
+    }
+  ]
+}</code></pre>
+
+    <p><strong>Siehe auch:</strong> <a href="#audio_codec">Audio-Codec</a> und <a href="#format">Format</a></p>
+  </section>
+</article>

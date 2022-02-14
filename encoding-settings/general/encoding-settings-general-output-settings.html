@@ -1,670 +1,24 @@
-﻿<!doctype html>
-<html lang="de">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Dieses Thema enthält Details zu den Codierungseinstellungen für allgemeine Ausgabeeinstellungen (gilt für alle Ausgaben).">
-
-  <title>Allgemeine Ausgabe-Einstellungen</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Zencoder_Logo.svg" alt="Produkt-Logo" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Sprache wählen</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="Support"/> Kontaktieren Sie Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="Systemstatus"/> Systemstatus</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Nach Hause</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/encoding-settings/general/">Allgemeine Einstellungen</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Allgemeine Ausgabe-Einstellungen</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Weitere Brightcove Docs</option>
-          
-            
-              <option value="https://support.brightcove.com">Dokumentation Home</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Brightcove Publikum</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Brightcove Leuchtfeuer</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Brightcove Kampagne</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Brightcove Spieler-Entwicklung</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">APIs für Video Cloud-Plattform</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">Videocloud-Geräte-SDKs</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">Integrationen und CMS-Konnektoren</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">Video Cloud — Allgemeine Informationen</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Nach Hause</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">Erste Schritte <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/getting-started/overview-zencoder.html">Überblick</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/quick-start-zencoder.html">Schnellstart</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/getting-api-key.html">Einen API-Schlüssel bekommen</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/output-settings.html">Ausgabe-Einstellungen</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/creating-multiple-outputs.html">Erstellen mehrerer Ausgaben</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general-information/index.html">Allgemeine Informationen <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general-information/faq-basics.html">Grundlagen</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-codecs-and-formats.html">Codecs Und Formate</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-encoding.html">Codierung</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-file-transfers.html">Datei-Transfers</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-zencoder-pricing.html">Zencoder Preisgestaltung</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-rate-limiting.html">Ratenbegrenzung</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/supported-video-and-audio-formats-codecs-and-containers.html">Unterstützte Video- und Audioformate</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/overview-context-aware-encoding.html">Übersicht: Kontextbezogenes Codieren</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/getting-notifications-when-videos-are-finished.html">Benachrichtigungen erhalten, wenn Videos fertig sind</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/how-zencoder-saves-your-files-when-uploads-fail.html">Wie Zencoder Dateien speichert, wenn Uploads fehlschlagen</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-s3.html">Verwenden von Zencoder mit S3</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-azure.html">Verwenden von Zencoder mit Azure</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-google-cloud-platform.html">Verwenden von Zencoder mit Google Cloud Storage</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/references/index.html">Referenzen <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/references/reference.html">API Referenz</a></li>
-                  
-                
-                  
-                    <li><a href="/references/known-issues.html">Bekannte Probleme</a></li>
-                  
-                
-                  
-                    <li><a href="/references/release-notes.html">Produkt-Updates</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/encoding-settings/index.html">Encoding-Einstellungen <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/general/index.html">Allgemeine Einstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-job.html">Job-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-general-output-settings.html">Allgemeine Ausgabe-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general/cae-settings.html">CAE-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html">Einstellungen für bedingte Ausgaben</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-notifications.html">Einstellungen für Benachrichtigungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/general-audio-video/index.html">Audio-/Videoeinstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html">Audio-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html">Einstellungen für die Audiobearbeitung</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video.html">Video-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html">Einstellungen für die Videobearbeitung</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html">Broadcast-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html">Framerate Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html">Einstellungen zur Kurskontrolle</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html">Einstellungen für die Auflösung</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">Segmentierte Streaming-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html">Transmuxing Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/formats-codecs/index.html">Formate und Codec-Einstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html">Format- und Codecs-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-aac.html">AAC-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html">FLV-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html">HDR-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html">H.264-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html">MP4-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html">VP6-Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/assets/index.html">Medien-Asset-Einstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-captions.html">Untertitel-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-clips.html">Clip-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-thumbnails.html">Thumbnails Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-watermarks.html">Wasserzeichen-Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/content-protection/index.html">Content Protection-Einstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-encryption.html">Verschlüsselungs-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-decryption.html">Einstellungen für die Entschlüsselung</a></li>
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-drm.html">DRM-Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/sources-destinations/index.html">Quellen/Zieleinstellungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html">S3-Einstellungen</a></li>
-                        
-                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-aspera.html">Aspera-Einstellungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/encoding-guides/index.html">Codierungs-Guides <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/encoding-guides/advanced-audio-mapping-guide.html">Leitfaden für Audio-Mapping</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/as11-mxf.html">AS-11-mXF-Anleitung</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/avc-intra-guide.html">AVC-Intra-Handbuch</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/cae-guide.html">CAE-Leitfaden</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/creating-mp4-and-hls-outputs-together.html">Transmuxing Anleitung</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/dash-streaming-and-playlists.html">DASH-Streaming und Wiedergabelisten</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/h264-advanced-guide.html">H.264 Advanced Guide</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/hdr10-video-output.html">Unterstützte HDR-Videoformate</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/hevch265-guide.html">Leitfaden HEVC/H.265</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/highwinds-smil.html">Hochwind-SMIL-Führer</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/html5-encoding.html">HTML5-Codierung</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/http-live-segmented-streaming-and-playlists.html">HLS-Streaming und Wiedergabelisten</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/http-live-streaming-using-fragmented-mp4.html">HLS mit fragmentiertem MP4</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/iosmobile-encoding.html">Leitfaden zur iOS-/Mobile-Codierung</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/microsoft-smooth-streaming.html">Microsoft reibungsloses Streaming</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/using-quality-based-encoding-modes-streaming-video.html">Qualitätsbasierte Kodierungsmodi für Streaming</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/vp6-advanced-guide.html">VP6-Handbuch für Fortgeschrittene</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/vp9-guide.html">VP9-Leitfaden</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/error-troubleshooting/index.html">Fehler/Problembehebung <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/error-troubleshooting/problems.html">Häufige Probleme</a></li>
-                  
-                
-                  
-                    <li><a href="/error-troubleshooting/region-outages.html">Ausfälle in der Region</a></li>
-                  
-                
-                  
-                    <li><a href="/error-troubleshooting/when-should-i-retry-failed-jobs.html">Wann sollten fehlgeschlagene Jobs erneut versucht werden</a></li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/error-troubleshooting/error-codes/index.html">Fehlercodes <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-akamainetstoragefilesizeerror.html">akamainetstorageFilesizeError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-checksummismatcherror.html">checkSummMatcherror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-dimensiontoosmallerror.html">dimensionToosMallerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadaccessdeniederror.html">DownloadAccessDeniederror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadfailureerror.html">downloadFailureError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadtimeouterror.html">downloadTimeoutError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-filenotfounderror.html">FileNotFounderROR-</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">filePermanentlyMovederRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">InaccurateDurationError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-incompatiblewithdynamicprofileserror.html">inkompatibleWithDynamicProfilesError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inputfilenotfound.html">InputFileNotFound</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidaccesskeyiderror.html">InvalidAccessKeyiderRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidaudiosettingserror.html">InvalidaudioSettingSError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidcodeccombinationerror.html">InvalidCodecCombinationError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invaliddownloadedfiletypeerror.html">InvalidDownloadedFileTypeError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidencryptionsettingserror.html">InvalidenCryptionsettingSerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidfilepatherror.html">InvalidFilePathError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidformatcodecerror.html">InvalidFormatCodecError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidframerateerror.html">InvalidFrameReateError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidusernameorpassworderror.html">InvalidUserNameOrPasswordError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideobitrateerror.html">InvalidVideoBITRATEERROR-Datei</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideosettingserror.html">InvalidVideoSettingSError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-nomediaerror.html">nomediaError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-quicktimereferenceerror.html">QuickTimeReferenceError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-remoteserverproblemerror.html">remoteServerproblemerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpauthfailederror.html">rtmpAuthFailederRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpmaxstreamsxidreached.html">rtmpMaxStreamsXiderreicht</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpstreamnamealreadyinuse.html">rtmpStreamNameAlreadyInUse</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-s3bucketnotfounderror.html">s3BucketNotFounderror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-segmentingerror.html">segmentingError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-skippedsourceerror.html">SkippedSourceError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-thumbnailerror.html">thumbnailError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transcodingerror.html">transcodingError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteegroupurlerror.html">Übertragen። InvalidGranteegroupUrleRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteeiderror.html">Übertragen። InvalidGranteIderRor</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-truncatedfileerror.html">TruncatedFileError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unabletocreatedynamicprofileserror.html">UnableToCreatedYNamicProfilesError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteddownloadproblemerror.html">unexpectedDownloadproblemerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedffmpegresult.html">UnexpectedffmpegResult</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedmplayerresult.html">UnexpectedmPlayerResult</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedprogenresult.html">UnexpectedProgenResult</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedresulterror.html">unexpectedRESULTERROR</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteduploadproblemerror.html">unexpectedUploadproblemerror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedx264result.html">unexpectedX264Ergebnis</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unreadablefileerror.html">UnreadableFileError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedcodecerror.html">UnsupportedCodecError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencodingerror.html">UnsupportedENCodingError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencryptionerror.html">UnsupportedEncryptionError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedtranscodecombinationerror.html">UnsupportedTranscodeCombinationError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadaccessdeniederror.html">UploadAccessDeniederror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadfailureerror.html">uploadFailureError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadservernotfounderror.html">uploadServerNotFounderror</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadtimeouterror.html">uploadTimeoutError</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-workertimeouterror.html">WorkerTimeoutError</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/integration/index.html">Integration <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/integration/faq-integration-libraries.html">Integrations-Biblioth</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/100-integration-reliability.html">100% Zuverlässigkeit bei der Integration</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/test-jobs-and-integration-mode.html">Jobs testen und Integrationsmodus</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/using-read-only-api-keys.html">Verwenden von schreibgeschützten API-Schlüsseln</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">unterstützung <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">Anzeigen der Seite „Systemstatus von Brightcove“</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Kontakt mit dem Vertrieb</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">Einen Supportfall öffnen</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menü „Navigation"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Inhalt der Seite</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="in neuem Tab öffnen" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
-<h1>Allgemeine Ausgabe-Einstellungen</h1>
+---
+title: Beschreibung der allgemeinen Ausgabeeinstellungen: Dieses Thema enthält Details zu Codierungseinstellungen im Zusammenhang mit allgemeinen Ausgabeeinstellungen (die für alle Ausgaben gelten).
+parent: General Settings 
+grandparent: Encoding Settings
+---
+ <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <summary>Dieses Thema enthält Details zu den Codierungseinstellungen für allgemeine Ausgabeeinstellungen (gilt für alle Ausgaben).</summary>
+  <summary>{{ page.description }}</summary>
 
-<section class="bcls-section"><h2 translate="No" id="type">type</h2>
+<section class="bcls-section"><h2 translate="No" id="type">Art</h2>
 <code translate="No">type:String</code>
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
 <p ><strong>Standard:</strong> Standard</p>
 
-<p ><strong>Gültige Werte:</strong> <code translate="No">standard</code> , <code translate="No">segmented</code> , <code translate="No">captions</code> , <code translate="No">playlist</code> , und <code translate="No">transfer-only</code></p>
+<p ><strong>Gültige Werte:</strong> <code translate="No">standard</code>, <code translate="No">segmented</code>, <code translate="No">captions</code>, <code translate="No">playlist</code>, und <code translate="No">transfer-only</code></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> <code translate="No">segmented</code></p>
 
@@ -672,10 +26,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p >Standardmäßig betrachtet Zencoder die Ausgaben als Standard-Audio- oder -Videodateien. Derzeit gibt es zwei spezielle Arten von Ausgaben: <code translate="No">segmented</code> und <code translate="No">playlist</code>.</p>
 
-<ul><li><code translate="No">segmented</code>:: Der typische Anwendungsfall für die Segmentierung ist das Live-HTTP-Streaming von Apple (siehe <a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">Segmentiertes Streaming</a>). Für segmentierte Ausgaben wird das Standardformat in ts anstelle von mp4 geändert.</li>
-	<li><code translate="No">captions</code>:: <em><strong><a href="/references/api-version-history.html">Nur API V2</a></strong></em><br/> Der Ausgabetyp für Untertitel erstellt eine Datei, die nur die Untertitel des Quellvideos enthält, und nicht ein Video, dem Untertitel hinzugefügt wurden. <em>Hinweis: Ausgaben vom Typ Untertitel sind möglicherweise nicht die einzigen Ausgaben für einen Job.</em><br/> Untertitel können Zencoder als separate Datei zur Verfügung gestellt werden (unter Verwendung der <a href="/encoding-settings/assets/encoding-settings-captions.html#caption_url">caption_url</a> Option) oder wird standardmäßig aus dem Quellvideo extrahiert.<br/> Unterstützte Formate zum Extrahieren von Untertiteln aus dem Quellvideo sind MP4 und TS. In einer MP4-Datei befinden sich die Untertitel möglicherweise in einer separaten Spur (im CEA-608-Format). Andernfalls müssen Untertitel in einer MP4- oder TS-Datei in einen MPEG2- oder AVC-Videostream eingebettet werden, der den Standards A / 53 oder SCTE-128 (CC1 und CC3) entspricht.<br/> Unterstützte Ausgabeformate für Ausgaben vom Typ Untertitel: '<code translate="No">mp4</code>','<code translate="No">scc</code>','<code translate="No">webvtt</code>','<code translate="No">vtt</code>','<code translate="No">m3u8</code>','<code translate="No">dfxp</code>'.</li>
-	<li><strong>Wiedergabeliste</strong>:: Der Ausgabetyp der Wiedergabeliste wird in Ausgabestreams mit mehreren Bitraten verwendet, um die Master-M3U8-Wiedergabelistendatei zu generieren. <em>Hinweis: Ausgaben vom Typ Wiedergabeliste sind möglicherweise nicht die einzigen Ausgaben für einen Job.</em></li>
-	<li><code translate="No">transfer-only</code>:: <em><strong><a href="/references/api-version-history.html">Nur API V2</a></strong></em><br/> EIN <code translate="No">transfer-only</code> Die Ausgabe überspringt die Codierung und sendet das Originalvideo an a <a translate="No" href="#url">url</a>.<br/> EIN <code translate="No">transfer-only</code> Ausgabe kann auch verwenden <a translate="No" href="#source">source</a> um das Video von einem anderen Ausgang auf den angegebenen zu übertragen <a translate="No" href="#url">url</a> , anstatt die Eingabe zu verwenden.</li>
+<ul><li><code translate="No">segmented</code>:: Der typische Anwendungsfall für die Segmentierung ist das Live-HTTP-Streaming von Apple (siehe <a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">Segmentiertes Streaming</a>). Bei segmentierten Ausgaben wird das Standardformat in ts statt auf mp4 geändert.</li>
+	<li><code translate="No">captions</code>:: <em><strong><a href="/references/api-version-history.html">Nur API V2</a></strong></em><br />
+	Der Ausgabetyp Untertitel erstellt eine Datei, die nur die Untertitel des Quellvideos enthält, und nicht ein Video mit hinzugefügten Untertiteln. <em>Hinweis: Ausgaben vom Typ Untertitel sind möglicherweise nicht die einzigen Ausgaben für einen Job.</em><br />
+	Bildunterschriften können Zencoder als separate Datei zur Verfügung gestellt werden (unter Verwendung des <a href="/encoding-settings/assets/encoding-settings-captions.html#caption_url">caption_url</a> Option) oder werden standardmäßig aus dem Quellvideo extrahiert.<br />
+	Unterstützte Formate zum Extrahieren von Untertiteln aus dem Quellvideo sind MP4 und TS. In einer MP4-Datei befinden sich die Beschriftungen möglicherweise in einer separaten Spur (im CEA-608-Format); andernfalls müssen Untertitel in einer MP4- oder TS-Datei in einen MPEG2- oder AVC-Videostream eingebettet sein, der den Standards A/53 oder SCTE-128 (CC1 und CC3) entspricht.<br />
+	Unterstützte Ausgabeformate für Ausgaben vom Typ Untertitel: '<code translate="No">mp4</code>', '<code translate="No">scc</code>', '<code translate="No">webvtt</code>', '<code translate="No">vtt</code>', '<code translate="No">m3u8</code>', '<code translate="No">dfxp</code>'.</li>
+	<li><strong>Playlist</strong>: Der Ausgabetyp der Wiedergabeliste wird in Ausgabestreams mit mehreren Bitraten verwendet, um die Master-M3U8-Wiedergabelistendatei zu generieren. <em>Hinweis: Ausgaben vom Typ Wiedergabeliste sind möglicherweise nicht die einzigen Ausgaben für einen Job.</em></li>
+	<li><code translate="No">transfer-only</code>:: <em><strong><a href="/references/api-version-history.html">Nur API V2</a></strong></em><br />
+	EIN <code translate="No">transfer-only</code> Ausgabe überspringt die Codierung und sendet das Originalvideo an a <a translate="No" href="#url">URL</a>.<br />
+	Eine <code translate="No">transfer-only</code> Ausgabe kann auch die <a translate="No" href="#source">Quelle verwenden</a>, um das Video von einer anderen Ausgabe auf die angegebene <a translate="No" href="#url">URL zu übertragen</a>, anstatt die Eingabe.</li>
 </ul><pre class="line-numbers">
 <code class="language-json" translate="No">{
   "input": "s3://zencodertesting/test.mov",
@@ -686,17 +46,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="#source">source</a> und <a translate="No" href="/encoding-settings/assets/encoding-settings-captions.html#caption_url">caption_url</a></p>
-</section><section class="bcls-section"><h2 translate="No" id="label">label</h2>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="#source">Quelle</a> und <a translate="No" href="/encoding-settings/assets/encoding-settings-captions.html#caption_url">caption_url</a></p>
+</section><section class="bcls-section"><h2 translate="No" id="label">Beschriftung</h2>
 <code translate="No">label:String</code>
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
-<p ><strong>Gültige Werte:</strong> Eine Schnur</p>
+<p ><strong>Gültige Werte:</strong> Ein Faden</p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> <code translate="No">iphone4</code></p>
 
@@ -714,19 +74,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="#source">source</a></p>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="#source">Quelle</a></p>
 </section><section class="bcls-section"><h2 translate="No" id="dynamic_profile_rendition">dynamic_profile_rendition</h2>
 <code translate="No">dynamic_profile_rendition:Integer</code>
 
 <p ><strong>API-Versionen:</strong> V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beschreibung:</strong></p>
 
-<p >Das <code translate="No">dynamic_profile_rendition</code> Die Einstellung gibt an, dass für diese Ausgabe Einstellungen aus dem dynamisch generierten CAE-Profil verwendet werden sollen, und insbesondere, aus welcher Wiedergabe des Profils Einstellungen verwendet werden sollen. Wann <code translate="No">dynamic_profile_rendition</code> eingestellt ist, müssen keine Kodierungseinstellungen wie z <code translate="No">resolution</code> , <code translate="No">bitrate</code> , usw. (Siehe die <a href="/encoding-settings/general/cae-settings.html">CAE-Leitfaden</a> für die vollständige Liste der Einstellungen, die von CAE automatisch festgelegt werden.)</p>
+<p >Das <code translate="No">dynamic_profile_rendition</code> Die Einstellung gibt an, dass für diese Ausgabe Einstellungen aus dem dynamisch generierten CAE-Profil verwendet werden sollen, und insbesondere, aus welcher Wiedergabe des Profils Einstellungen verwendet werden sollen. Wenn festgelegt <code translate="No">dynamic_profile_rendition</code> ist, müssen keine Kodierungseinstellungen angegeben werden <code translate="No">resolution</code>, z. B. <code translate="No">bitrate</code> usw. (Siehe die <a href="/encoding-settings/general/cae-settings.html">CAE-Leitfaden</a> für die vollständige Liste der Einstellungen, die von CAE automatisch festgelegt werden.)</p>
 
 <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -743,30 +103,30 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="#source">source</a></p>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="#source">Quelle</a></p>
 </section><section class="bcls-section"><h2 translate="No" id="url">url</h2>
 <code translate="No">url:String</code>
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
-<p ><strong>Gültige Werte:</strong> Eine gültige S3-, Cloud-Datei-, GCS-, FTP-, FTPS-, SFTP-, Aspera-, Azure- oder HTTP-Adresse.</p>
+<p ><strong>Gültige Werte:</strong> Eine gültige S3-, Cloud Files-, GCS-, FTP-, FTPS-, SFTP-, Aspera-, Azure- oder HTTP-Adresse.</p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong></p>
 
-<ul><li translate="No">s3://my-output-bucket/final.mp4</li>
-	<li translate="No">cf://username:api_key@container/object</li>
-	<li translate="No">cf+uk://username:api_key@container/object</li>
-	<li translate="No">gcs://access_key:secret_key@gcs-bucket/object</li>
+<ul><li translate="No">s3: //my-output-bucket/final.mp4</li>
+	<li translate="No">cf: //username:api_key @container /object</li>
+	<li translate="No">cf+uk: //username:api_key @container /object</li>
+	<li translate="No">gcs: //access_key:secret_key @gcs -bucket/object</li>
 	<li translate="No">ftp://user:password@ftp.example.com/final.mp4</li>
 	<li translate="No">sftp://user:password@sftp.example.com/final.mp4</li>
-	<li translate="No">aspera://user:password@host:ssh-port/path/to/file.mp4</li>
+	<li translate="No">aspera: //user:password @host:ssh-port/path/zu/file.mp4</li>
 </ul><p ><strong>Beschreibung:</strong></p>
 
-<p >Eine vollständige URL, einschließlich eines Dateinamens, auf den die Ausgabedatei hochgeladen wird. Bitte sehen Sie <a translate="No" href="#base-url">base_url</a> Weitere Informationen zu Anbietern.</p>
+<p >Eine vollständige URL, einschließlich eines Dateinamens, auf den die Ausgabedatei hochgeladen wird. Bitte sehen <a translate="No" href="#base-url">base_url</a> für weitere Informationen zu den Anbietern.</p>
 
 <p >Wir unterstützen offiziell den HTTP-Upload in S3, GCS, Cloud Files und Akamai.</p>
 
@@ -776,17 +136,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p >Um Schlüssel mit Sonderzeichen zu erstellen, die in URLs (? Oder #) nicht gültig sind, müssen Sie diese per URL codieren (% 3F bzw.% 23). Alle anderen Zeichen dürfen nicht URL-codiert sein.</p>
 
-<p >Sie können den Bereich des S3-Buckets angeben, indem Sie das Protokoll der URL auf festlegen <code translate="No">s3+region-name</code> , wobei "Regionsname" definiert ist durch <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">dieses Dokument</a>. Um beispielsweise aus einem Bucket in der Region Asien-Pazifik (Singapur) auf eine Datei zuzugreifen, setzen Sie die URL auf <code translate="No">s3+ap-southeast-1://my-bucket/file.mp4</code>.</p>
+<p >Sie können die Region des S3-Buckets angeben, indem Sie das Protokoll der URL auf festlegen <code translate="No">s3+region-name</code>, wobei „Regionenname“ durch <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">dieses Dokument definiert ist</a>. Um beispielsweise aus einem Bucket in der Region Asien-Pazifik (Singapur) auf eine Datei zuzugreifen, setzen Sie die URL auf <code translate="No">s3+ap-southeast-1://my-bucket/file.mp4</code>.</p>
 
 <p ><strong>Hinweise zu Cloud-Dateien:</strong></p>
 
-<p >Sie können die zu verwendende Region (DFW, ORD oder UK) angeben, indem Sie sie dem Protokoll hinzufügen, z <code translate="No">cf+ord://username:api_key@container/object</code>. Derzeit sind die einzigen Cloud Files-Regionen die unterstützten Regionen DFW, ORD und UK. Die DFW-Region wird standardmäßig verwendet.</p>
+<p >Sie können die zu verwendende Region (DFW, ORD oder UK) angeben, indem Sie sie z. B. zum Protokoll hinzufügen <code translate="No">cf+ord://username:api_key@container/object</code>. Derzeit werden nur DFW, ORD und UK als Cloud Files-Regionen unterstützt. Die DFW-Region wird standardmäßig verwendet.</p>
 
 <p >Alle Sonderzeichen im Containernamen müssen URL-codiert sein.</p>
 
 <p ><strong>Hinweise zum Google Cloud Storage:</strong></p>
 
-<p >GCS-Zugriffsschlüssel finden Sie im Abschnitt "Interoperabler Zugriff" im <a href="https://storage.cloud.google.com/m">Google APIs-Konsole</a>. Zugangsschlüssel müssen <a href="/general-information/special-characters-usernames-and-passwords.html">ordnungsgemäß entkommen</a>sein.</p>
+<p >GCS-Zugriffsschlüssel finden Sie im Abschnitt "Interoperabler Zugriff" im <a href="https://storage.cloud.google.com/m">Google APIs-Konsole</a>. Zugangsschlüssel müssen sein <a href="/general-information/special-characters-usernames-and-passwords.html">richtig entkommen</a>.</p>
 
 <p >GCS-Bucket-Namen, die Punkte enthalten, werden nicht unterstützt.</p>
 
@@ -804,7 +164,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p >Der ssh-port-Teil der URL ist nicht erforderlich und wird standardmäßig auf 22 gesetzt.</p>
 
-<p >Zencoder führt einen Aspera-Client auf den Videocodierungsservern aus, der eine Verbindung zu Ihrem herstellt <a href="https://www.ibm.com/products/aspera">Aspera Enterprise oder Connect Server</a> , die die Dateien hostet.</p>
+<p >Zencoder betreibt einen Aspera Client auf den Videocodierungsservern, der <a href="https://www.ibm.com/products/aspera">eine Verbindung zu Ihrem Aspera Enterprise oder Connect Server herstellt</a>, der die Dateien hostet.</p>
 
 <p >Dies ist eine ähnliche Situation wie bei einem FTP-Server, um Ihre Dateien verfügbar zu machen, und bei Zencoder, der einen FTP-Client für die Dateiübertragung verwendet.</p>
 
@@ -824,17 +184,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="#secondary-url">secondary_url</a></p>
-</section><section class="bcls-section"><h2 translate="No" id="secondary_url">secondary_url</h2>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="#secondary-url">sekundäre_url</a></p>
+</section><section class="bcls-section"><h2 translate="No" id="secondary_url">sekundäre_url</h2>
 <code translate="No">secondary_url:String</code>
 
 <p ><strong>API-Versionen:</strong> V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
-<p ><strong>Gültige Werte:</strong> Eine gültige S3-, Cloud-Datei-, GCS-, FTP-, FTPS-, SFTP-, Aspera-, Azure- oder HTTP-URL.</p>
+<p ><strong>Gültige Werte:</strong> Eine gültige S3, Cloud Files, GCS, FTP, FTPS, SFTP, Aspera, Azure oder HTTP-URL.</p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> Siehe URL-Dokumentation</p>
 
@@ -842,28 +202,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <h4>Für VOD-Jobs</h4>
 
-<p >Eine vollständige URL, einschließlich eines Dateinamens, auf den die Ausgabedatei bei der Übertragung hochgeladen wird <a translate="No" href="#url">url</a> schlägt fehl.</p>
+<p >Eine vollständige URL, einschließlich eines Dateinamens, auf den die Ausgabedatei hochgeladen wird, wenn die Übertragung auf <a translate="No" href="#url">URL</a> fehlschlägt.</p>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="#url">url</a></p>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="#url">URL</a></p>
 </section><section class="bcls-section"><h2 translate="No" id="base_url">base_url</h2>
 <code translate="No">base_url:String</code>
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
-<p ><strong>Gültige Werte:</strong> Eine gültige S3-, Cloud-Datei-, GCS-, Aspera-, FTP-, FTPS- oder SFTP-URL ohne Dateinamen.</p>
+<p ><strong>Gültige Werte:</strong> Eine gültige S3-, Cloud Files-, GCS-, Aspera-, FTP-, FTPS- oder SFTP-URL ohne Dateinamen.</p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong></p>
 
-<ul><li translate="No">s3://my-output-bucket/</li>
-	<li translate="No">cf://username:api_key@container/</li>
-	<li translate="No">gcs://access_key:secret_key@gcs-bucket/</li>
-	<li translate="No">ftp://user:password@ftp.example.com/path/to</li>
+<ul><li translate="No">s3: // mein-Ausgabe-Bucket /</li>
+	<li translate="No">vgl.: //username:api_key @container/</li>
+	<li translate="No">gcs: //access_key:secret_key @gcs -bucket/</li>
+	<li translate="No">ftp: // user: password@ftp.example.com/path/to</li>
 	<li translate="No">http://s3.amazonaws.com/my-output-bucket/</li>
-	<li translate="No">aspera://user:password@host:ssh-port/path/to/</li>
+	<li translate="No">aspera: //user:password @host:ssh-port/pfad/zu/</li>
 </ul><p ><strong>Beschreibung:</strong></p>
 
 <p >Eine Basis-S3-, Cloud-Datei-, GCS-, FTP-, FTPS- oder SFTP-Verzeichnis-URL, unter der die transkodierte Datei ohne Dateinamen hochgeladen wird. Wenn <a href="#filename">Dateiname</a> Wird nicht angegeben, wird ein zufälliger Dateiname plus eine entsprechende Erweiterung generiert.</p>
@@ -872,17 +232,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p >Du musst <a href="/general-information/using-zencoder-s3.html">gewähren <strong>schreiben</strong> Berechtigungen für Zencoder für den Ausgabe-Bucket</a> bevor Sie einen Auftrag an Zencoder senden. Bitte beachten Sie, dass der S3-Bucket und nicht der S3-Pfad eine Schreibberechtigung benötigt. Zum Beispiel ein Vermögenswert bei <code translate="No">http://s3.amazonaws.com/my_files/0000/video.mp4</code> Schreibzugriff muss zu "my_files" (dem Bucket-Namen) hinzugefügt werden, nicht zu "my_files / 0000" (dem Pfad).</p>
 
-<p >Sie können den Bereich des S3-Buckets angeben, indem Sie das Protokoll der URL auf festlegen <code translate="No">s3+region-name</code> , wobei "Regionsname" definiert ist durch <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">dieses Dokument</a>. Um beispielsweise aus einem Bucket in der Region Asien-Pazifik (Singapur) auf eine Datei zuzugreifen, setzen Sie die URL auf <code translate="No">s3+ap-southeast-1://my-bucket/</code>.</p>
+<p >Sie können die Region des S3-Buckets angeben, indem Sie das Protokoll der URL auf festlegen <code translate="No">s3+region-name</code>, wobei „Regionenname“ durch <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">dieses Dokument definiert ist</a>. Um beispielsweise aus einem Bucket in der Region Asien-Pazifik (Singapur) auf eine Datei zuzugreifen, setzen Sie die URL auf <code translate="No">s3+ap-southeast-1://my-bucket/</code>.</p>
 
 <p ><strong>Hinweise zu Cloud-Dateien:</strong></p>
 
-<p >Sie können die zu verwendende Region (DFW, ORD oder UK) angeben, indem Sie sie dem Protokoll hinzufügen, z <code translate="No">cf+ord://username:api_key@container/object</code>. Derzeit sind die einzigen Cloud Files-Regionen die unterstützten Regionen DFW, ORD und UK. Die DFW-Region wird standardmäßig verwendet.</p>
+<p >Sie können die zu verwendende Region (DFW, ORD oder UK) angeben, indem Sie sie z. B. zum Protokoll hinzufügen <code translate="No">cf+ord://username:api_key@container/object</code>. Derzeit werden nur DFW, ORD und UK als Cloud Files-Regionen unterstützt. Die DFW-Region wird standardmäßig verwendet.</p>
 
 <p >Alle Sonderzeichen im Containernamen müssen URL-codiert sein.</p>
 
 <p ><strong>Hinweise zum Google Cloud Storage:</strong></p>
 
-<p >GCS-Zugriffsschlüssel finden Sie im Abschnitt "Interoperabler Zugriff" im <a href="https://storage.cloud.google.com/m">Google APIs-Konsole</a>. Zugangsschlüssel müssen <a href="/general-information/special-characters-usernames-and-passwords.html">ordnungsgemäß entkommen</a>sein.</p>
+<p >GCS-Zugriffsschlüssel finden Sie im Abschnitt "Interoperabler Zugriff" im <a href="https://storage.cloud.google.com/m">Google APIs-Konsole</a>. Zugangsschlüssel müssen sein <a href="/general-information/special-characters-usernames-and-passwords.html">richtig entkommen</a>.</p>
 
 <p >GCS-Bucket-Namen, die Punkte enthalten, werden nicht unterstützt.</p>
 
@@ -914,23 +274,23 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="#filename">filename</a></p>
-</section><section class="bcls-section"><h2 translate="No" id="filename">filename</h2>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="#filename">Dateiname</a></p>
+</section><section class="bcls-section"><h2 translate="No" id="filename">Dateiname</h2>
 <code translate="No">filename:String</code>
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
 <p ><strong>Gültige Werte:</strong> Ein gültiger Video- oder Audiodateiname.</p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> final.mp4</p>
 
 <p ><strong>Beschreibung:</strong></p>
 
-<p >Das <code translate="No">filename</code> einer fertigen Datei. Wenn Sie a <code translate="No">filename</code> aber nicht a <code translate="No">base_url</code> Wir speichern die Datei mit diesem Dateinamen vorübergehend in einem S3-Bucket, damit Sie sie herunterladen können.</p>
+<p >Das <code translate="No">filename</code> einer fertigen Datei. Wenn Sie ein <code translate="No">filename</code> aber kein angeben <code translate="No">base_url</code>, speichern wir die Datei mit diesem Dateinamen vorübergehend in einem S3-Bucket, damit Sie sie herunterladen können.</p>
 
 <p ><strong>Anmerkungen zu S3:</strong></p>
 
@@ -952,17 +312,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
 <p ><strong>Gültige Werte:</strong> Ein gültiger Paketdateiname.</p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> final.zip</p>
 
 <p ><strong>Beschreibung:</strong></p>
 
-<p >Der Dateiname einer gepackten Ausgabe. Wenn die Erweiterung mit einer gültigen übereinstimmt <a translate="No" href="#package-format">package_format</a> Dadurch wird auch der Standardwert für package_format festgelegt. Wenn angegeben, wird dieser Wert in Kombination mit verwendet <a translate="No" href="#base-url">base_url</a> eine Ausgabe-URL zu generieren, anstatt <a translate="No" href="#filename">filename</a>. Wenn <a translate="No" href="#filename">filename</a> ist nicht angegeben, wird standardmäßig das gleiche wie verwendet <code translate="No">package_filename</code> , aber mit der richtigen Dateierweiterung für den Medientyp.</p>
+<p >Der Dateiname einer gepackten Ausgabe. Wenn die Erweiterung mit einem gültigen <a translate="No" href="#package-format">package_format übereinstimmt</a>, wird dadurch auch der Standardwert für package_format festgelegt. Wenn angegeben, wird dieser Wert in Kombination mit verwendet <a translate="No" href="#base-url">base_url</a> um eine Ausgabe-URL zu generieren, anstatt <a translate="No" href="#filename">Dateiname</a>. Wenn der <a translate="No" href="#filename">Dateiname nicht angegeben</a> ist, wird er standardmäßig auf den gleichen Wert wie <code translate="No">package_filename</code>, jedoch mit der richtigen Dateierweiterung für den Medientyp verwendet.</p>
 
 <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -980,21 +340,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
 <p ><strong>Gültige Werte:</strong> <code translate="No">zip</code> und <code translate="No">tar</code></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> <code translate="No">zip</code></p>
 
 <p ><strong>Beschreibung:</strong></p>
 
-<p >Erstellt eine <code translate="No">zip</code> oder <code translate="No">tar</code> Datei, die alle Mediendateien einer Ausgabe enthält und dieses einzelne Paket anstelle aller einzelnen Dateien hochlädt. Vorschaubilder ohne separate <a translate="No" href="#base-url">base_url</a> wird auch in Unterverzeichnissen in der Paketdatei enthalten sein.</p>
+<p >Erstellt eine <code translate="No">zip</code> oder <code translate="No">tar</code> Datei, die alle Mediendateien einer Ausgabe enthält und dieses einzelne Paket anstelle aller einzelnen Dateien hochlädt. Thumbnails ohne separates <a translate="No" href="#base-url">base_url</a> wird ebenfalls in Unterverzeichnisse innerhalb der Paketdatei aufgenommen.</p>
 
-<p >Wenn <a translate="No" href="#package_filename">package_filename</a> Wenn nicht angegeben, wird der Dateiname des Pakets basierend auf generiert <a href="#filename">Dateiname</a> (aber mit dem Paketformat als Erweiterung). Sehen <a translate="No" href="#package_filename">package_filename</a> Einzelheiten zur URL-Behandlung.</p>
+<p >Wenn <a translate="No" href="#package_filename">package_filename</a> nicht angegeben wird, wird der Dateiname des Pakets basierend auf dem <a href="#filename">Dateinamen</a> (jedoch mit dem Paketformat als Erweiterung) generiert. Sehen <a translate="No" href="#package_filename">Paket_Dateiname</a> für Details zum URL-Handling.</p>
 
-<p ><strong>Notiz:</strong> Wenn Miniaturansichten in der Paketdatei enthalten sind, werden die Pfade innerhalb des Pakets über die API als URL und nicht als vollständige URL zurückgegeben.</p>
+<p ><strong>Hinweis:</strong> Wenn Miniaturansichten in der Paketdatei enthalten sind, werden die Pfade innerhalb des Pakets über die API als URL und nicht als vollständige URL zurückgegeben.</p>
 
 <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -1006,15 +366,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="#package_filename">package_filename</a></p>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="#package_filename">Paket_Dateiname</a></p>
 </section><section class="bcls-section"><h2 translate="No" id="device_profile">device_profile</h2>
 <code translate="No">device_profile:String</code>
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Gültige Werte:</strong> <code translate="No">mobile/advanced</code> , <code translate="No">mobile/baseline</code> , <code translate="No">mobile/legacy</code> , <code translate="No">v1/mobile/advanced</code> , <code translate="No">v1/mobile/baseline</code> , <code translate="No">v1/mobile/legacy</code> , <code translate="No">v2/mobile/advanced</code> , <code translate="No">v2/mobile/baseline</code> , und <code translate="No">v2/mobile/legacy</code></p>
+<p ><strong>Gültige Werte:</strong> <code translate="No">mobile/advanced</code>, <code translate="No">mobile/baseline</code>, <code translate="No">mobile/legacy</code>, <code translate="No">v1/mobile/advanced</code>, <code translate="No">v1/mobile/baseline</code>, <code translate="No">v1/mobile/legacy</code>, <code translate="No">v2/mobile/advanced</code>, <code translate="No">v2/mobile/baseline</code>, und <code translate="No">v2/mobile/legacy</code></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> <code translate="No">mobile/advanced</code></p>
 
@@ -1022,19 +382,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p >Die Geräteprofile von Zencoder sind Verknüpfungen zu einer Reihe von Optionen, die auf die Wiedergabefähigkeit eines bestimmten Geräts oder einer Reihe von Geräten abzielen. Durch das Festlegen eines Geräteprofils werden lediglich die im API-Aufruf verwendeten Standardwerte geändert. Das heißt, Sie können einzelne Einstellungen eines Profils ganz einfach ganz überschreiben, um sie Ihren speziellen Anforderungen anzupassen.</p>
 
-<p >Versionierte Geräteprofile sind verfügbar und unten aufgeführt. Angeben einer Version (<code translate="No">v1/mobile/baseline</code> ) stellt sicher, dass Sie immer das gleiche Profil erhalten, während nicht versionierte Profile (<code translate="No">mobile/baseline</code> ) kann im Laufe der Zeit geändert werden, wenn bessere Optionen verfügbar werden.</p>
+<p >Versionierte Geräteprofile sind verfügbar und unten aufgeführt. Wenn Sie eine Version (<code translate="No">v1/mobile/baseline</code>) angeben, wird sichergestellt, dass Sie immer das gleiche Profil erhalten, während nicht versionsspezifische Profile (<code translate="No">mobile/baseline</code>) geändert werden können Zeit, wenn bessere Optionen verfügbar werden.</p>
 
 <p >Profile und ihre Standardwerte:</p>
 
-<ul><li><code translate="No">mobile/advanced</code>: : <code translate="No">{"size": "1280x720", "audio_bitrate": 56, "max_audio_sample_rate": 48000, "max_frame_rate": 30, "max_video_bitrate": 5000, "video_codec_level": 3.1, "videoe_codec_profile": "main"}</code></li>
-	<li><code translate="No">mobile/baseline</code>: : <code translate="No">{"size": "480x320", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 1500, "video_reference_frames": 1}</code></li>
-	<li><code translate="No">mobile/legacy</code>: : <code translate="No">{"size": "320x240", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 768, "video_codec_level": 1.3, "video_reference_frames": 1}</code></li>
-	<li><code translate="No">v1/mobile/advanced</code>: : <code translate="No">{"size": "1280x720", "audio_bitrate": 128, "max_audio_sample_rate": 48000, "max_frame_rate": 30, "max_video_bitrate": 5000, "video_codec_level": 3.1, "videoe_codec_profile": "main"}</code></li>
-	<li><code translate="No">v1/mobile/baseline</code>: : <code translate="No">{"size": "480x320", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 1500}</code></li>
-	<li><code translate="No">v1/mobile/legacy</code>: : <code translate="No">{"size": "320x240", "audio_bitrate": 24, "max_audio_sample_rate": 16000, "max_frame_rate": 15, "max_video_bitrate": 192, "video_bitrate": 192, "bitrate_cap": 192, "upscale": true, "aspect_mode": "pad", "format": "3gp", "video_codec": "mpeg4"}</code></li>
-	<li><strong>v2 / mobil / fortgeschritten</strong> :: <code translate="No">{"size": "1280x720", "audio_bitrate": 56, "max_audio_sample_rate": 48000, "max_frame_rate": 30, "max_video_bitrate": 5000, "video_codec_level": 3.1, "videoe_codec_profile": "main"}</code></li>
-	<li><code translate="No">v2/mobile/baseline</code>: : <code translate="No">{"size": "480x320", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 1500, "video_reference_frames": 1}</code></li>
-	<li><code translate="No">v2/mobile/legacy</code>: : <code translate="No">{"size": "320x240", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 768, "video_codec_level": 1.3, "video_reference_frames": 1}</code></li>
+<ul><li><code translate="No">mobile/advanced</code>: <code translate="No">{"size": "1280x720", "audio_bitrate": 56, "max_audio_sample_rate": 48000, "max_frame_rate": 30, "max_video_bitrate": 5000, "video_codec_level": 3.1, "videoe_codec_profile": "main"}</code></li>
+	<li><code translate="No">mobile/baseline</code>: <code translate="No">{"size": "480x320", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 1500, "video_reference_frames": 1}</code></li>
+	<li><code translate="No">mobile/legacy</code>: <code translate="No">{"size": "320x240", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 768, "video_codec_level": 1.3, "video_reference_frames": 1}</code></li>
+	<li><code translate="No">v1/mobile/advanced</code>: <code translate="No">{"size": "1280x720", "audio_bitrate": 128, "max_audio_sample_rate": 48000, "max_frame_rate": 30, "max_video_bitrate": 5000, "video_codec_level": 3.1, "videoe_codec_profile": "main"}</code></li>
+	<li><code translate="No">v1/mobile/baseline</code>: <code translate="No">{"size": "480x320", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 1500}</code></li>
+	<li><code translate="No">v1/mobile/legacy</code>: <code translate="No">{"size": "320x240", "audio_bitrate": 24, "max_audio_sample_rate": 16000, "max_frame_rate": 15, "max_video_bitrate": 192, "video_bitrate": 192, "bitrate_cap": 192, "upscale": true, "aspect_mode": "pad", "format": "3gp", "video_codec": "mpeg4"}</code></li>
+	<li><strong>v2/mobil/fortgeschritten</strong>: <code translate="No">{"size": "1280x720", "audio_bitrate": 56, "max_audio_sample_rate": 48000, "max_frame_rate": 30, "max_video_bitrate": 5000, "video_codec_level": 3.1, "videoe_codec_profile": "main"}</code></li>
+	<li><code translate="No">v2/mobile/baseline</code>: <code translate="No">{"size": "480x320", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 1500, "video_reference_frames": 1}</code></li>
+	<li><code translate="No">v2/mobile/legacy</code>: <code translate="No">{"size": "320x240", "audio_bitrate": 96, "max_audio_sample_rate": 44100, "max_frame_rate": 30, "max_video_bitrate": 768, "video_codec_level": 1.3, "video_reference_frames": 1}</code></li>
 </ul><pre class="line-numbers">
 <code class="language-json" translate="No">{
   "input": "s3://zencodertesting/test.mov",
@@ -1045,27 +405,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#format">format</a></p>
-</section><section class="bcls-section"><h2 translate="No" id="strict">strict</h2>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#format">Format</a></p>
+</section><section class="bcls-section"><h2 translate="No" id="strict">strikt</h2>
 <code translate="No">strict:Boolean</code>
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
 <p ><strong>Standard:</strong> <code translate="No">false</code></p>
 
 <p ><strong>Gültige Werte:</strong> <code translate="No">true</code> oder <code translate="No">false</code></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> <code translate="No">true</code></p>
 
 <p ><strong>Beschreibung:</strong></p>
 
-<p >Aktivieren "<code translate="No">strict</code> "Modus. Standardmäßig werden wir versuchen, Codierungsprobleme für Sie zu beheben. Das nennt man "<code translate="No">compatible</code> "Modus. Wenn Sie beispielsweise eine Video-Bitrate einstellen, die für unseren Encoder zu niedrig ist, korrigieren und verwenden wir automatisch die niedrigstmögliche Bitrate. Wenn Sie also nach einer Bitrate von 150 KBit / s fragen, der Encoder jedoch nichts unter 200 KBit / s ausführen kann, codieren wir das Video automatisch mit 200 KBit / s für Sie.</p>
+<p >Aktivieren Sie den<code translate="No">strict</code>" " Modus. Standardmäßig werden wir versuchen, Codierungsprobleme für Sie zu beheben. Dies heißt „<code translate="No">compatible</code>" Modus. Wenn Sie beispielsweise eine Video-Bitrate einstellen, die für unseren Encoder zu niedrig ist, korrigieren und verwenden wir automatisch die niedrigstmögliche Bitrate. Wenn Sie also nach einer Bitrate von 150 KBit / s fragen, der Encoder jedoch nicht weniger als 200 KBit / s ausführen kann, codieren wir das Video automatisch mit 200 KBit / s für Sie.</p>
 
-<p >Wenn Sie aktivieren "<code translate="No">strict</code> "Modus, wir werden solche Codierungseinstellungen nicht korrigieren. Stattdessen werden wir den Job nicht bestehen, da wir Ihre Zielspezifikation nicht erfüllen können.</p>
+<p >Wenn Sie den Modus "<code translate="No">strict</code>" aktivieren, werden wir die Codierungseinstellungen wie diese nicht korrigieren. Stattdessen werden wir den Job nicht bestehen, da wir Ihre Zielspezifikation nicht erfüllen können.</p>
 
 <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -1081,13 +441,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
 <p ><strong>Standard:</strong> <code translate="No">false</code></p>
 
 <p ><strong>Gültige Werte:</strong> <code translate="No">true</code> oder <code translate="No">false</code></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> wahr</p>
 
@@ -1109,13 +469,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
 <p ><strong>Standard:</strong> <code translate="No">false</code></p>
 
 <p ><strong>Gültige Werte:</strong> <code translate="No">true</code> oder <code translate="No">false</code></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> wahr</p>
 
@@ -1132,14 +492,14 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
   ]
 }</code></pre>
-</section><section class="bcls-section"><h2 translate="No" id="source">source</h2>
+</section><section class="bcls-section"><h2 translate="No" id="source">Quelle</h2>
 <code translate="No">source:String</code>
 
 <p ><strong>API-Versionen:</strong> V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> <code translate="No">parent</code></p>
 
@@ -1147,7 +507,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p >Verweist auf eine Beschriftung einer anderen Ausgabe und verwendet das von dieser Ausgabe erstellte Video zur Verarbeitung anstelle der Eingabedatei.</p>
 
-<p >Verwendung der Quelle in Verbindung mit a <a translate="No" href="#type">type</a> von "Nur übertragen" ermöglicht das Übertragen eines einzelnen Ausgangsvideos auf eine Sekunde <a translate="No" href="#url">url</a>. Nützlich zum Senden eines einzelnen Videos an mehrere Ziele.</p>
+<p >Verwenden von source in Verbindung mit a <a translate="No" href="#type">Typ</a> von "nur übertragen" ermöglicht die Übertragung eines einzelnen Ausgabevideos auf ein zweites <a translate="No" href="#url">URL</a>. Nützlich zum Senden eines einzelnen Videos an mehrere Ziele.</p>
 
 <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -1165,25 +525,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a href="#label">Etikette</a> und <a translate="No" href="#type">type</a></p>
-</section><section class="bcls-section"><h2 translate="No" id="credentials">credentials</h2>
+<p ><strong>Siehe auch:</strong> <a href="#label">Etikett</a> und <a translate="No" href="#type">Typ</a></p>
+</section><section class="bcls-section"><h2 translate="No" id="credentials">Referenzen</h2>
 <code translate="No">credentials:String</code>
 
 <p ><strong>API-Versionen:</strong> V2</p>
 
-<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">outputs</a></p>
+<p ><strong>Elternteil:</strong> <a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> <code translate="No">s3_production</code></p>
 
 <p ><strong>Beschreibung:</strong></p>
 
-<p >Verweist auf den Spitznamen von <a translate="No" href="https://app.zencoder.com/account/credentials">saved credentials</a> für die Übertragung zu verwenden.</p>
+<p >Verweist auf den Spitznamen von <a translate="No" href="https://app.zencoder.com/account/credentials">gespeicherte Zugangsdaten</a> für die Übertragung zu verwenden.</p>
 
 <p >Anmeldeinformationen können nur mit URLs verwendet werden, die ihrem Typ entsprechen. Beispielsweise werden S3-Anmeldeinformationen, die mit einer FTP-URL gepaart sind, abgelehnt.</p>
 
-<p ><strong>Notiz:</strong> Die "genauesten" Anmeldeinformationen haben Vorrang. Beispielsweise haben die in der URL übergebenen Anmeldeinformationen Vorrang vor dem Parameter "Anmeldeinformationen", ebenso wie der Parameter "Anmeldeinformationen" Vorrang vor den Standardanmeldeinformationen hat.</p>
+<p ><strong>Hinweis:</strong> Die "genauesten" Anmeldeinformationen haben Vorrang. Beispielsweise haben die in der URL übergebenen Anmeldeinformationen Vorrang vor dem Parameter "Anmeldeinformationen", ebenso wie der Parameter "Anmeldeinformationen" Vorrang vor den Standardanmeldeinformationen hat.</p>
 
 <pre class="line-numbers">
 <code class="language-json" translate="No">{
@@ -1196,8 +556,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   ]
 }</code></pre>
 
-<p ><strong>Siehe auch:</strong> <a translate="No" href="#url">url</a> und <a translate="No" href="#base-url">base_url</a></p>
-</section><section class="bcls-section"><h2 translate="No" id="generate_md5_checksum">generate_md5_checksum</h2>
+<p ><strong>Siehe auch:</strong> <a translate="No" href="#url">URL</a> und <a translate="No" href="#base-url">base_url</a></p>
+</section><section class="bcls-section"><h2 translate="No" id="generate_md5_checksum">generator_md5_checksum</h2>
 <code translate="No">generate_md5_checksum:Boolean</code>
 
 <p ><strong>API-Versionen:</strong> V2</p>
@@ -1206,7 +566,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p ><strong>Gültige Werte:</strong> <code translate="No">true</code> oder <code translate="No">false</code></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beschreibung:</strong></p>
 
@@ -1226,11 +586,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
-<p ><strong>Standard:</strong> 30 für S3, 10 für alle anderen Destinationen.</p>
+<p ><strong>Standard:</strong> 30 für S3, 10 für alle anderen Ziele.</p>
 
-<p ><strong>Gültige Werte:</strong> Eine Ganzzahl zwischen 1 und 30</p>
+<p ><strong>Gültige Werte:</strong> Eine ganze Zahl zwischen 1 und 30</p>
 
-<p ><strong>Kompatible Job-Typen:</strong> VOD</p>
+<p ><strong>Kompatible Auftragstypen:</strong> vod</p>
 
 <p ><strong>Beispiel:</strong> 5</p>
 
@@ -1239,7 +599,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <p >Die maximale Anzahl gleichzeitiger Uploads beim Hochladen mehrteiliger Ausgaben, hauptsächlich HLS-Segmente.</p>
 <code translate="No">parallel_upload_limit</code> <strong>muss für einzelne Ausgänge eingestellt werden, nicht für den gesamten Job.</strong>
 
-<p >&nbsp;</p>
+<p > </p>
 
 <p >Dies kann die Übertragungszeiten beschleunigen, abhängig von der Bandbreite auf Ihrem Remote-Server. Beachten Sie, dass mehr Verbindungen den Server stärker belasten können. Wenn Sie Probleme mit Upload-Zeitüberschreitungen haben oder verhindern möchten, dass Zencoder beim Hochladen von Dateien zu viel Bandbreite verwendet, setzen Sie diesen Wert auf 1.</p>
 
@@ -1260,25 +620,25 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
   ]
 }</code></pre>
-</section><section class="bcls-section"><h2 translate="No" id="headers">headers</h2>
+</section><section class="bcls-section"><h2 translate="No" id="headers">Kopfzeilen</h2>
 <code translate="No">headers:Hash</code>
 
 <p ><strong>API-Versionen:</strong> V1, V2</p>
 
 <p ><strong>Eltern:</strong> <a href="/encoding-settings/general/encoding-settings-job.html#outputs">Ausgänge</a> ODER <a href="/encoding-settings/assets/encoding-settings-thumbnails.html#thumbnails">Thumbnails</a></p>
 
-<p ><strong>Kompatible Job-Typen:</strong> Alle</p>
+<p ><strong>Kompatible Auftragstypen:</strong> Alle</p>
 
 <p ><strong>Beispiel:</strong> <code translate="No">{ "Content-Type": "binary/octet-stream" }</code></p>
 
 <p ><strong>Beschreibung:</strong></p>
 
-<p >HTTP-Header, die beim Hochladen mit Ihrer Datei gesendet werden sollen. Diese Funktion wird derzeit bei Verwendung von S3-, GCS- und Cloud-Dateien unterstützt.</p>
+<p >HTTP-Header, die beim Hochladen mit Ihrer Datei gesendet werden sollen. Diese Funktion wird derzeit bei Verwendung von S3, GCS und Cloud Files unterstützt.</p>
 
-<p >Zencoder unterstützt das Festlegen einer begrenzten Teilmenge dieser Header: <code translate="No">Cache-Control</code> , <code translate="No">Content-Disposition</code> , <code translate="No">Content-Encoding</code> , <code translate="No">Content-Type</code> , <code translate="No">Expires</code> , <code translate="No">x-amz-acl</code> , <code translate="No">x-amz-storage-class</code> , <code translate="No">x-amz-server-side-encryption</code> , <code translate="No">x-amz-meta-*</code> , x-goog-acl und <code translate="No">x-goog-meta-*</code>.</p>
+<p >Zencoder unterstützt das Festlegen einer begrenzten Teilmenge dieser Header: <code translate="No">Cache-Control</code>, <code translate="No">Content-Disposition</code>, <code translate="No">Content-Encoding</code>, <code translate="No">Content-Type</code>, <code translate="No">Expires</code>, <code translate="No">x-amz-acl</code>, <code translate="No">x-amz-storage-class</code>, <code translate="No">x-amz-server-side-encryption</code>, <code translate="No">x-amz-meta-*</code>, x-goog-acl und <code translate="No">x-goog-meta-*</code>.</p>
 
-<aside class="bcls-aside bcls-aside--information">Hinweise:
-<ul><li>Benutzen <a href="https://aws.amazon.com/blogs/aws/aws-storage-update-new-lower-cost-s3-storage-option-glacier-price-reduction/">Die Standard_IA-Funktion von S3</a> müssen Sie die einstellen <code translate="No">x-amz-storage-class</code> Header auf den entsprechenden Wert. Diese Werte ändern sich und werden von AWS und Google gesteuert. Daher müssen Sie korrekte Werte von ihnen erhalten.</li>
+<aside class="bcls-aside bcls-aside--information">Anmerkungen:
+<ul><li>Benutzen <a href="https://aws.amazon.com/blogs/aws/aws-storage-update-new-lower-cost-s3-storage-option-glacier-price-reduction/">Die Standard_IA-Funktion von S3</a> müssen Sie die einstellen <code translate="No">x-amz-storage-class</code> Header auf den entsprechenden Wert. Diese Werte ändern sich und werden von AWS und Google gesteuert. Sie müssen daher korrekte Werte von ihnen erhalten.</li>
 	<li>Die "goog" -Header werden für GCS-Ausgabe-URLs unterstützt, nicht jedoch für URLs in S3.</li>
 </ul></aside><p >Header werden ignoriert, wenn kein Ausgabeort angegeben ist.</p>
 
@@ -1297,132 +657,3 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 }</code></pre>
 </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Inhalt der Seite</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Brightcove Support-Service</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">Systemstatus</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Kontakt mit dem Support</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">DOKUMENTATION</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Schulungen</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Online-Kurse</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">Für einen Kurs anmelden</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Brightcove Universität</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">brightcove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Kontaktiere uns</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. Alle Rechte vorbehalten.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Allgemeine Geschäftsbedingungen</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.677.0.min.js"></script> -->
-</body>
-
-</html>
