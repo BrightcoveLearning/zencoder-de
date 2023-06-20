@@ -1,0 +1,1795 @@
+﻿<!DOCTYPE html>
+<html lang="de"> 
+    <head>
+        <title>Bekannte Probleme: Studio, Brightcove-Player und APIs</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="In diesem Thema werden die bekannten Probleme mit Studio, Brightcove Player und APIs aufgelistet.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="logo" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Zuhause</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/getting-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Erste Schritte</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/overview-zencoder.html">Überblick</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/quick-start-zencoder.html">Schnellstart</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/getting-api-key.html">Einen API-Schlüssel erhalten</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/output-settings.html">Ausgabeeinstellungen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/creating-multiple-outputs.html">Mehrere Ausgaben erstellen</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general-information/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Allgemeine Informationen</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/faq-basics.html">Grundlagen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/faq-codecs-and-formats.html">Codecs und Formate</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/faq-encoding.html">Codierung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/faq-file-transfers.html">Dateiübertragungen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/faq-zencoder-pricing.html">Zencoder-Preise</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/faq-rate-limiting.html">Ratenbegrenzung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/supported-video-and-audio-formats-codecs-and-containers.html">Unterstützte Video- und Audioformate</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/overview-context-aware-encoding.html">Überblick: Kontextbewusste Kodierung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/getting-notifications-when-videos-are-finished.html">Benachrichtigungen erhalten, wenn Videos fertig sind</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/how-zencoder-saves-your-files-when-uploads-fail.html">Wie Zencoder Dateien speichert, wenn Uploads fehlschlagen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/using-zencoder-s3.html">Verwenden von Zencoder mit S3</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/using-zencoder-azure.html">Verwenden von Zencoder mit Azure</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general-information/using-zencoder-google-cloud-platform.html">Zencoder mit Google Cloud Storage verwenden</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/references/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Verweise</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/reference.html">API-Referenz</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/known-issues.html">Bekannte Probleme</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/references/release-notes.html">Produkt-Updates</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/encoding-settings/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Kodierungseinstellungen</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/encoding-settings/general/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Allgemeine Einstellungen</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general/encoding-settings-job.html">Auftragseinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general/encoding-settings-general-output-settings.html">Allgemeine Ausgabeeinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general/cae-settings.html">CAE-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general/encoding-settings-conditional-outputs.html">Einstellungen für bedingte Ausgänge</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general/encoding-settings-notifications.html">Benachrichtigungseinstellungen</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/encoding-settings/general-audio-video/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Audio-/Videoeinstellungen</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-audio.html">Audio Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html">Audioverarbeitungseinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-video.html">Video-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html">Einstellungen für die Videoverarbeitung</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html">Broadcast-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html">Bildrateneinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html">Ratensteuerungseinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-resolution.html">Auflösungseinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">Segmentierte Streaming-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html">Transmuxing-Einstellungen</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/encoding-settings/formats-codecs/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Formate und Codec-Einstellungen</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html">Format- und Codec-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/formats-codecs/encoding-settings-aac.html">AAC-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/formats-codecs/encoding-settings-flv.html">FLV-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html">HDR-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/formats-codecs/encoding-settings-h264.html">H.264-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/formats-codecs/encoding-settings-mp4.html">MP4-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/formats-codecs/encoding-settings-vp6.html">VP6-Einstellungen</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/encoding-settings/assets/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Media Asset-Einstellungen</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/assets/encoding-settings-auto-captions.html">Automatische Untertitel</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/assets/encoding-settings-captions.html">Untertiteleinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/assets/encoding-settings-clips.html">Clip-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/assets/encoding-settings-thumbnails.html">Thumbnail-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/assets/encoding-settings-watermarks.html">Wasserzeicheneinstellungen</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/encoding-settings/content-protection/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Einstellungen für den Inhaltsschutz</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/content-protection/encoding-settings-encryption.html">Verschlüsselungseinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/content-protection/encoding-settings-decryption.html">Entschlüsselungseinstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/content-protection/encoding-settings-drm.html">DRM-Einstellungen</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/encoding-settings/sources-destinations/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Quellen/Zieleinstellungen</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html">S3-Einstellungen</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/encoding-settings/sources-destinations/encoding-settings-aspera.html">Aspera-Einstellungen</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/encoding-guides/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Kodierungsleitfäden</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/advanced-audio-mapping-guide.html">Audio-Mapping-Anleitung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/as11-mxf.html">AS-11-mxf-Anleitung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/avc-intra-guide.html">AVC-Intra-Guide</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/cae-guide.html">CAE-Leitfaden</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/creating-mp4-and-hls-outputs-together.html">Transmuxing-Anleitung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/dash-streaming-and-playlists.html">DASH-Streaming und Playlists</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/h264-advanced-guide.html">H.264-Anleitung für Fortgeschrittene</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/hdr10-video-output.html">Unterstützte HDR-Videoformate</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/hevch265-guide.html">HEVC/H.265-Anleitung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/highwinds-smil.html">Highwinds SMIL-Leitfaden</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/html5-encoding.html">HTML5-Codierung</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/http-live-segmented-streaming-and-playlists.html">HLS-Streaming und Playlists</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/http-live-streaming-using-fragmented-mp4.html">HLS mit fragmentiertem MP4</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/iosmobile-encoding.html">Leitfaden für iOS/Mobile Encoding</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/microsoft-smooth-streaming.html">Microsoft Reibungsloses Streaming</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/using-quality-based-encoding-modes-streaming-video.html">Qualitätsbasierte Codierungsmodi für Streaming</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/vp6-advanced-guide.html">VP6 Anleitung für Fortgeschrittene</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/encoding-guides/vp9-guide.html">VP9-Anleitung</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/error-troubleshooting/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Fehler/Problembehandlung</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/problems.html">Allgemeine Probleme</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/region-outages.html">Regionsausfälle</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/when-should-i-retry-failed-jobs.html">Wann sollten fehlgeschlagene Jobs wiederholt werden?</a></li>
+              
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/error-troubleshooting/error-codes/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Fehlercodes</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-akamainetstoragefilesizeerror.html">akamainetStorageFileSizeError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-checksummismatcherror.html">checkSummisMatchError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-dimensiontoosmallerror.html">DimensionToosMallerror</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-downloadaccessdeniederror.html">downloadAccessdeneEderror</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-downloadfailureerror.html">DownloadFailureError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-downloadtimeouterror.html">downloadTimeOutError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-filenotfounderror.html">FileNotFounderError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-filepermanentlymovederror.html">filepermanentlymovederror</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">ungenaueDurationError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-incompatiblewithdynamicprofileserror.html">Inkompatibel mit dynamischem Profilfehler</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-inputfilenotfound.html">inputFileNotFound</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidaccesskeyiderror.html">invalidAccessKeyIderError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidaudiosettingserror.html">invalidaudioSettingsError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidcodeccombinationerror.html">InvalidCodecCombinationError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invaliddownloadedfiletypeerror.html">invalidDownloadedFiletypeError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidencryptionsettingserror.html">InvalidenCryptionSettingsError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidfilepatherror.html">invalidFilePathError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidformatcodecerror.html">InvalidFormatCodeCError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidframerateerror.html">InvalidFramerateError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidusernameorpassworderror.html">invalidUserNameorPasswordError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidvideobitrateerror.html">invalidVideoObitrateError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-invalidvideosettingserror.html">invalidVideoSettingsError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-nomediaerror.html">NomeDiaError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-quicktimereferenceerror.html">QuickTimeFerenceError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-remoteserverproblemerror.html">RemoteServerProblemError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-rtmpauthfailederror.html">rtmPauthFailederror</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-rtmpmaxstreamsxidreached.html">rtmpmaxStreamsxIderreicht</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-rtmpstreamnamealreadyinuse.html">rtmpStreamNameAlreadyInUse</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-s3bucketnotfounderror.html">s3BucketNotFounderError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-segmentingerror.html">SegmentingError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-skippedsourceerror.html">SkippedSourceError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-thumbnailerror.html">thumbnailError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-transcodingerror.html">TranscodingError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-transferinvalidgranteegroupurlerror.html">Übertragen። InvalidGranteeGroupUrleRror</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-transferinvalidgranteeiderror.html">Übertragen። invalidGranteEidError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-truncatedfileerror.html">TruncatedFileError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unabletocreatedynamicprofileserror.html">UnableToCreateMyNamicProfilesError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unexpecteddownloadproblemerror.html">UnerwartetdDownloadProblemError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unexpectedffmpegresult.html">unerwartetDffmpegResult</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unexpectedmplayerresult.html">unerwartetDMPlayerResult</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unexpectedprogenresult.html">unerwartetProgenResult</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unexpectedresulterror.html">UnerwartetDresulterror</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unexpecteduploadproblemerror.html">UnerwartetDuploadProblemError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unexpectedx264result.html">Unerwartetes X264-Ergebnis</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unreadablefileerror.html">UnreadableFileError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unsupportedcodecerror.html">UnsupportedCodeCError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unsupportedencodingerror.html">UnsupportedenCodingError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unsupportedencryptionerror.html">UnsupportedenCryptionError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-unsupportedtranscodecombinationerror.html">UnsupportedTranscodeCombinationError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-uploadaccessdeniederror.html">uploadAccessDeneEderror</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-uploadfailureerror.html">uploadFailureError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-uploadservernotfounderror.html">uploadServerNotFounderError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-uploadtimeouterror.html">uploadTimeOutError</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/error-troubleshooting/error-codes/error-workertimeouterror.html">WorkerTimeOutError</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/integration/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Integration</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/integration/faq-integration-libraries.html">Integrationsbibliotheken</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/integration/100-integration-reliability.html">100 % Integrationszuverlässigkeit</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/integration/test-jobs-and-integration-mode.html">Testjobs und Integrationsmodus</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/integration/using-read-only-api-keys.html">Verwenden von schreibgeschützten API-Schlüsseln</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Unterstützung</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Anzeigen der Seite „Brightcove System Status“</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Kontakt zum Vertrieb</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Einen Supportfall öffnen</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Passwort für das Support-Portal zurücksetzen</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Zuhause</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/support/">Unterstützung</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Bekannte Probleme: Studio, Brightcove-Player und APIs</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<article class="bcls-article">
+  <h1>Bekannte Probleme: Studio, Brightcove-Player und APIs</h1>
+  <summary></summary>
+  <section class="bcls-section">
+    <p><strong>Zu den identifizierten bekannten Problemen gehören:</strong></p>
+    <ul>
+      <li><a href="#studio">Studio</a>
+        <ul>
+          <li><a href="#media">Medienmodul</a></li>
+          <li><a href="#players">Spielermodul</a></li>
+          <li><a href="#live">Live-Video</a></li>
+          <li><a href="#analytics">Analytics-Modul</a></li>
+          <li><a href="#audience">Zielgruppenmodul</a></li>
+          <li><a href="#social">Soziales Modul</a></li>
+          <li><a href="#di">Upload-Modul / Dynamische Aufnahme</a></li>
+        </ul>
+      </li>
+      <li><a href="#player">Brightcove-Player</a></li>
+      <li><a href="#player_plugins">Brightcove Player-Plugins</a></li>
+      <li><a href="#brightcoveLive">Brightcove Live</a></li>
+      <li><a href="#audience_insights">Brightcove-Publikumseinblicke</a></li>
+    </ul>
+    <ul>
+    </ul>
+    <ul>
+      <li><a href="#analytics_api">Analytics-API</a></li>
+      <li><a href="#cms">CMS-API</a></li>
+      <li><a href="#diapi">Dynamische Ingest-API</a></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="studio">Studio</h2>
+    <dl>
+      <dt>Durch die Verwendung der Übersetzungsfunktion von Chrome werden einige Studio-Funktionen beeinträchtigt </dt>
+      <dd>Wenn Sie die Übersetzungsfunktion von Chrome zum Übersetzen von Studio-Modulen verwenden, werden einige Funktionen unterbrochen.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="media">Medienmodul</h2>
+    <dl>
+      <dt>Bilderfassung mit IE 11</dt>
+      <dd>Die Bilderfassung mit IE 11 funktioniert nicht, wenn das Video-Seitenverhältnis 1: 1 oder 4: 3 beträgt.</dd>
+      <dt>Name der Quelldatei mit Doppelbytezeichen</dt>
+      <dd>Der Name der Quelldatei, die Doppelbytezeichen enthält, wird nach der erneuten Codierung im Medienmodul verstümmelt.</dd>
+      <dt>Medien-Sharing</dt>
+      <dd>
+        <p>Wenn Sie eine große Anzahl von Videos freigeben, empfiehlt Brightcove, höchstens zwei Seiten Videos gleichzeitig freizugeben. Das gleichzeitige Teilen einer großen Anzahl von Videos kann zu einem Timeout-Fehler führen.</p>
+        <p>Das Hinzufügen von Untertiteln zu einem freigegebenen Video, das bereits Untertitel enthält, wird nicht unterstützt.</p>
+        <p>Die Medienfreigabe schlägt für Videos fehl, die durch Ausschneiden von Live-Streams erstellt wurden.</p>
+      </dd>
+      <dt>Geplante Videos</dt>
+      <dd>Da die Wiedergabe-API und der Katalog Videos für bis zu 10 bis 15 Minuten zwischenspeichern, kann ein Player, der ein Video anfordert, das in den nächsten Minuten verfügbar sein soll (bis zu 20), möglicherweise kein abspielbares Video abrufen, bis der Cache aktualisiert wird.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="players">Spielermodul</h2>
+    <dl>
+      <dt>Vorladeeinstellung</dt>
+      <dd>Aufgrund eines Fehlers im Internet Explorer kann die Preload-Einstellung bei Verwendung von IE ignoriert werden.</dd>
+      <dt>Zugriff auf Datenquellen über Domänen hinweg</dt>
+      <dd>Wenn das so ist <a href="https://www.windows-security.org/0d1b99f52cba398c3ce4d1cdd80d7441/access-data-sources-across-domains">Internet Explorer-Richtlinieneinstellung</a> Ist für einen domänenbeschränkten Brightcove-Player aktiviert, wird der Player nicht in Internet Explorer 11 geladen. Dies scheint ein Fehler im IE zu sein, und es ist keine Problemumgehung bekannt. Deaktivieren Sie diese Einstellung, wenn domänenbeschränkte Player in IE 11 funktionieren sollen.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="live">Live-Video</h2>
+    <dl>
+      <dt>Wiederkehrende Ereignisse, die auch bei Inaktivität veröffentlicht werden, zeigen die letzten 3 Segmente der Wiedergabe</dt>
+      <dd>
+        Wenn ein wiederkehrendes SEP-Ereignis noch auf einer Seite veröffentlicht wird und der Client gerade nicht streamt, werden die letzten 3 Segmente (etwa 18 Sekunden) zwischengespeichert und wiedergegeben.
+        <p style="font-weight: bold;">Problemumgehung</p>
+        <p>Eine Möglichkeit, dies zu verhindern, besteht darin, eine <a href="https://player.support.brightcove.com/code-samples/brightcove-player-sample-live-custom-error-message.html">benutzerdefinierte Live-Fehlermeldung im Player</a> zu implementieren, indem ein Plugin mit Code wie dem folgenden hinzugefügt wird:</p>
+        <pre class="line-numbers"><code class="language-javascript" translate="No">// Listen for a change on the durationmyPlayer.on("durationchange", ()=>{
+// Save the duration to a local variable
+var duration = myPlayer.duration();
+
+// Check if the duration is a finite number (VOD)
+// or if it's infinite (Live).
+// If it's a VOD it would mean that the recurrent stream is over
+// and the custom image would be displayed.
+var isLive = !Number.isFinite(myPlayer.duration())
+
+if(!isLive && duration !== 0){myPlayer.pause();myModal.open();</code></pre>
+      </dd>
+      <dt>Brightcove Player zählt Videoansichten für fertige Live-Events</dt>
+      <dd>Der Brightcove-Player berücksichtigt video_view jedes Mal, wenn ein Remote-Asset geladen wird, selbst wenn es sich um ein abgeschlossenes Live-Ereignis mit einer leeren oder nicht mehr abrufbaren HLS-Wiedergabeliste handelt. <strong>Problemumgehung:</strong> Deaktivieren, verschieben oder löschen Sie das Video.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="audience_insights">Publikumseinblicke</h2>
+    <dl>
+      <dt>Server-Side Ad Insertion (SSAI) - Preroll-Anzeigen</dt>
+      <dd>
+        <h3>Problem</h3>
+
+        <p>Wenn Sie die Wiedergabe am Anfang eines Videos mit einer Pre-Roll-Anzeige suchen, wird die <code translate="No">ads-ad-ended</code> und <code translate="No">ads-pod-ended</code> Ereignisse werden ausgelöst.</p>
+
+        <h3>Umgehen</h3>
+
+        <p>Eine mögliche Problemumgehung wäre die Verwendung</p>
+
+<pre>
+<code class="language-javascript" translate="No">player.currentTime(0.1)</code></pre>
+
+        <p>an Stelle von</p>
+
+<pre>
+<code class="language-javascript" translate="No">player.currentTime(0)</code></pre>
+      </dd>
+    </dl>
+  </section>
+  <section class="bcls-section">&nbsp;</section>
+  <section class="bcls-section">
+    <h2 id="analytics">Analytik</h2>
+    <dl>
+      <dt><strong>Der Gesamtbandbreitenbericht ist nur für ältere Aufnahmevideos verfügbar</strong></dt>
+      <dd>Das Datenfeld Gesamtbandbreite ist derzeit nicht für die dynamische Übermittlung verfügbar, daher ist diese Option für benutzerdefinierte Berichte nicht verfügbar.</dd>
+      <dt><strong>Analytics-Daten sind aufgrund von Werbeblockern möglicherweise nicht korrekt</strong></dt>
+      <dd>Analysedaten (die sowohl über die Benutzeroberfläche als auch über die API abgerufen werden) sind möglicherweise ungenau, da Werbeblocker wie UBlock die Übermittlung von Analysedaten auf Clientcomputern blockieren.</dd>
+      <dt><strong>Benutzerdefinierte Berichte Für einige Videos wird 0 bytes_delivered angezeigt</strong></dt>
+      <dd>Videos, die mit einem Dynamic Delivery-Aufnahmeprofil aufgenommen wurden, zeigen in benutzerdefinierten Berichten 0 bytes_delivered an.</dd>
+      <dt><strong>Benutzerdefinierte Berichte mit mehreren Filtern</strong></dt>
+      <dd>Bei Verwendung mehrerer Filter wird eine UND-Verknüpfung verwendet. Wenn Sie beispielsweise zwei Filter hinzufügen, <strong>Video-Tag</strong> und <strong>Player</strong>, werden nur Videos mit den angegebenen Tags <strong>und im angegebenen Player</strong> angezeigt kehrte zurück.</dd>
+      <dt><strong>Benutzerdefinierte Berichte mit der Funktion Nach Video-Tag filtern</strong></dt>
+      <dd>Beim Erstellen eines benutzerdefinierten Berichts gibt es Einschränkungen bei der Verwendung der Funktion Nach Video-Tag filtern. Es werden nur bis zu 2.000 Videos in Ihrer Bibliothek mit diesem bestimmten Tag berücksichtigt. Wenn die Anzahl der Videos mit einem bestimmten Tag größer ist, empfehlen wir, einen ungefilterten Bericht mit den Tags zu erstellen und die Filterung lokal mit Ihrer Tabellenkalkulationssoftware durchzuführen.</dd>
+      <dt><strong>"Andere / Dritte"</strong> Erscheint im Leistungsbericht</dt>
+      <dd>Wenn ein Video, das nicht Ihre Video Cloud-Bibliothek ist, in einem Video Cloud-Player (z. B. einem Remote-Asset) abgespielt wird, <strong>Andere / Dritte</strong> wird ohne zugehörige Video-ID angezeigt.</dd>
+      <dt>Aktualisierte Videonamen, die in Analytics nicht berücksichtigt werden</dt>
+      <dd>Analytics erfährt nur dann etwas über den Titel eines Videos, wenn der Player ihn als Teil des Wiedergabe-Beacons an Analytics sendet. Wenn ein Videotitel geändert wird, erhält Analytics den neuen Videotitel erst nach einer Videowiedergabe. Dies kann zu einem Szenario führen, in dem ein Videoname aktualisiert wird und wenn keine Wiedergaben aufgezeichnet werden, wird der alte Videoname in den Analytics-Berichten wiedergegeben. Daten für Zeiträume vor März 2013 leiden häufig unter diesem Problem und zeigen Metadaten an, bei denen es sich nur um eine Zahl handelt. Beispielsweise könnte ein Videotitel als 1230123012 angezeigt werden. Dies liegt daran, dass Daten aus diesem Zeitraum im alten Analysesystem erfasst wurden.</dd>
+      <dt>Videonamen und Spielernamen werden angezeigt??????? in Analytics-Benutzeroberfläche</dt>
+      <dd>Für den Monat Oktober 2013 können die Metadaten (Videonamen und Spielernamen) wie ein Haufen????? aussehen s. Dieses Problem betrifft Publisher, deren Metadaten Doppelbytezeichen enthalten und im Oktober 2013 Videoansichten hatten. Dieses Problem hing mit der Art und Weise zusammen, wie wir die Metadaten für die Anzeige in der Analytics-Benutzeroberfläche erfasst haben. Ab November 2013 verfügt das Analytics-System über zusätzliche Sicherheitsvorkehrungen, um zu verhindern, dass mit den Ereignismetriken gesendete Metadaten beschädigt werden.</dd>
+      <dt>Berichtszeitzone</dt>
+      <dd>Die Berichtszeitzone wird verwendet, um Tagesgrenzen für die Berichterstellung von Daten zu berechnen. Die Änderung der Zeitzoneneinstellung für die Berichterstellung wirkt sich nur auf die künftigen Daten aus, und Änderungen werden nicht rückwirkend angewendet. Wenn Sie diese Einstellung ändern, sehen Sie möglicherweise eine flache Stelle oder einen Anstieg Ihrer Daten, wenn Sie sich Tagesgrenzen ansehen, an denen die Änderung angewendet wurde. Aktualisierungen dieser Einstellung werden möglicherweise nicht sofort wirksam, und Analysedaten beziehen sich möglicherweise weiterhin auf die alte Einstellung, bis das System die Änderungen verarbeitet.</dd>
+      <dt>Engagement-Daten werden in täglicher Granularität gespeichert</dt>
+      <dd>Engagement-Daten werden in täglicher Granularität unter Verwendung der UTC-Zeit gespeichert und enthalten manchmal 2 volle Tage Daten in der Tabelle "Zielgruppe bei x%" im Engagement-Bericht.</dd>
+      <dt>Internet Explorer-Unterstützung</dt>
+      <dd>Für das Analytics-Modul ist Internet Explorer 11 oder höher erforderlich.</dd>
+      <dt>Hohe Anzahl "anderer" Ergebnisse für den Gerätehersteller</dt>
+      <dd>In einigen Fällen wird möglicherweise eine hohe Anzahl von "anderen" Ergebnissen für den Gerätehersteller angezeigt. Dies tritt auf, wenn der Datenkollektor das nicht erkennt <code translate="No">user_agent</code> mit Analysedaten geliefert. Die häufigste Ursache, die wir dafür identifiziert haben, ist eine von Instagram erstellte benutzerdefinierte user_agent-Zeichenfolge, aber es gibt wahrscheinlich noch andere.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="audience">Publikum</h2>
+    <dl>
+      <dt>Die Zielgruppenaktivität zeigt Percent Watched: 0 und Time Watched: 0</dt>
+      <dd>Manchmal werden Interaktivitätsereignisse ausgelöst, ohne dass ein Video abgespielt wird oder bevor ein Video sein erstes Signal gesendet hat. Dies kann dazu führen, dass Ansichtsereignisse aufgezeichnet werden, die Interaktivität, aber keine Videoaktivität aufweisen (0% gesehen, 0 Sekunden gesehen).</dd>
+      <dt>Internet Explorer-Unterstützung</dt>
+      <dd>Für Zielgruppen-Lead-Formulare ist Internet Explorer 11 oder höher erforderlich.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="social">Sozial</h2>
+    <dl>
+      <dt>Das Ghostery-Browser-Plugin kann das Social-Modul beeinträchtigen</dt>
+      <dd>
+        <p>Das Ghostery-Browser-Plugin kann das Social-Modul stören und das ordnungsgemäße Laden verhindern.</p>
+        <p><strong>Problemumgehung:</strong> Fügen Sie Studio zur Whitelist für Ghostery hinzu.</p>
+      </dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="di">Upload-Modul / Dynamische Aufnahme</h2>
+    <dl>
+      <dt>Das Hochladen über das Upload-Modul schlägt fehl, wenn die Uhr auf dem Gerät nicht mit der tatsächlichen Uhrzeit übereinstimmt</dt>
+      <dd>Uploads sind für einen bestimmten Zeitraum zulässig. Wenn Ihre Uhrzeit um mehr als 15 Minuten von der tatsächlichen Uhrzeit abweicht, werden beim Hochladen Fehler angezeigt.</dd>
+      <dt>Durch erneutes Codieren über Dynamic Ingestion wird das Datum der Videoaktivierung aktualisiert</dt>
+      <dd>Wenn Sie ein Video mit Dynamic Ingestion erneut transkodieren, wird das Aktivierungsdatum für das Video auf das aktuelle Datum aktualisiert. Wenn Sie nach Aktivierungsdatum sortierte Smart Playlists verwenden, wirkt sich dies auf die Reihenfolge der Videos in der Playlist aus.</dd>
+      <dt>Dateinamen</dt>
+      <dd>Videodateinamen (einschließlich der Erweiterung) dürfen 120 Einzelbyte- (60 Doppelbyte-) Zeichen nicht überschreiten. Wenn dies der Fall ist, wird das Video erfolgreich aufgenommen, aber Sie können es später nicht erneut transcodieren.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="player">Brightcove-Player</h2>
+    <p>Überprüf den <a href="https://player.support.brightcove.com/release-notes/brightcove-player-release-notes.html">Versionshinweise zu Brightcove Player</a> um festzustellen, ob ein in der Vergangenheit bekanntes Problem durch eine kürzlich veröffentlichte Version behoben wurde.</p>
+    <dl>
+      <dt>Die Taste für die Abspielgeschwindigkeit wurde in Safari 15 hinzugefügt</dt>
+      <dd>Brightcove setzt die Benutzereinstellungen nicht außer Kraft, und darüber hinaus gibt Apple an, dass <strong>diese Eigenschaft für HTML5-Audio-/Videoelemente unter iOS nicht festgelegt werden kann</strong>.</dd>
+      <dt>Die Verwendung von Element-IDs, die mit einer Zahl beginnen, verursacht Probleme mit CSS und JavaScript (<code translate="No">document.querySelector</code>)</dt>
+      <dd>CSS-Regeln, die auf einer Element-ID basieren, oder JavaScript, das versucht, mithilfe des Dokuments <code translate="No">querySelector()</code> oder der <code translate="No">querySelectorAll()</code> Methoden einen Verweis auf ein Element zu erhalten, schlagen fehl, wenn die Element-ID mit einer Zahl beginnt. Es gibt eine schmerzhafte <a href="https://mathiasbynens.be/notes/css-escapes">Umgehung</a> , aber die bessere Lösung ist, dies zu vermeiden.</dd>
+      <dt>Die Steuerleiste des Players verschwindet nicht auf einem Windows 10 Touch-fähigen PC im Vollbildmodus</dt>
+      <dd>Keine Umgehungsmöglichkeiten bekannt.</dd>
+      <dt>Elemente mit <code translate="No">id</code> Einstellen <code translate="No">default</code></dt>
+      <dd>Es ist bekannt, dass sich Brightcove Player schlecht verhält, wenn ein Element mit vorhanden ist <code translate="No">id="default"</code> auf der Seite. Der Blogbeitrag <a href="https://2ality.com/2012/08/ids-are-global.html">DOM: Element-IDs sind globale Variablen</a> erklärt, warum dies ein Problem ist. Ein häufiges Symptom dieses Problems ist der <code translate="No">MEDIA_ERR_UNKNOWN</code> Fehler.</dd>
+      <dt>Anzeigen auf Safari und / oder iOS blockiert</dt>
+      <dd>
+        Änderungen, die Apple an den Ursprungsrichtlinien für Safari und iOS vorgenommen hat, können dazu führen, dass Anzeigen nicht geschaltet werden.
+        <p><strong>Problemumgehung</strong></p>
+        <p>Wir haben dieses Problem für SSAI behoben, indem wir zusätzliche CORs-Header hinzugefügt haben. Wenn Sie clientseitige Anzeigen verwenden, wird das Problem dadurch nicht behoben, da die CORs-Header von Ihrem Server oder Hosting-Service gesendet werden müssen. Die Header, die wir hinzugefügt haben, sind:</p>
+        <pre><code translate="No">access-control-allow-headers: Server,Range,Content-Length,Content-Range
+          access-control-allow-headers: X-Requested-With,Origin,Range,Accept-Encoding,Referer
+          access-control-allow-methods: GET,HEAD,OPTIONS
+          access-control-allow-origin: *</code></pre>
+      </dd>
+      <dt>Konsolenwarnungen</dt>
+      <p>Brightcove Player kann generieren <strong>Warnungen</strong> die in der Browserkonsole angezeigt werden. Die Warnungen sind im Gegensatz zu Fehlermeldungen harmlos und wirken sich nicht auf die Wiedergabe aus. Ein Beispiel für eine Warnung wird hier angezeigt:</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="Konsolenwarnung" src="/assets/images/general/console-warning.png"/></figure>
+      <dt>Videos ohne Poster- oder Miniaturbilder</dt>
+      <dd>Videos ohne Miniatur- / Posterbilder können dazu führen, dass beim Laden des Players ein Fehler angezeigt wird. Dies wirkt sich auf mobile SDK-Player in einer Weise aus, die den Player zum Absturz bringen kann.</dd>
+      <dt>Internet Explorer setzt seine Wiedergaberate immer auf 1,0 zurück, wenn die Wiedergabe angehalten wird.</dt>
+      <dd>Dies wird in Safari 14 (Big Sur-Version) kein Problem mehr sein.</dd>
+      <dt>IE11-Bilder nur für Audio-Inhalte, die nicht angezeigt werden</dt>
+      <dd>Wenn in IE11 nur Audioinhalte abgespielt werden, wird das Video-Standbild nicht angezeigt, es wird nur ein schwarzer Bildschirm angezeigt. Das Bild kann mit folgendem Code beibehalten werden:
+        <pre>
+  <code class="language-css" translate="No">.vjs-has-started .vjs-poster {
+  display: block;
+  }</code>
+  </pre>
+      </dd>
+      <dt>Auto-Advance-Wiedergabeliste auf Safari</dt>
+      <dd>Für Safari, wenn die Wiedergabeliste sichtbar ist und der Player die Vorladeeinstellung auf eingestellt hat <code translate="no">none</code> Die automatische Wiedergabe des nächsten Videos schlägt stillschweigend fehl.</dd>
+      <dt>Apple-Benutzereinstellungen verhindern, dass der Brightcove-Player die Untertitel automatisch anzeigt</dt>
+      <dd>Automatische Untertitel für iOS können unter <strong>Systemeinstellungen &gt; Eingabehilfen &gt; Untertitel &gt;</strong> eingestellt werden. Aktivieren Sie dann das Kontrollkästchen <strong>Geschlossene Untertitel und SDH bevorzugen</strong> .</dd>
+      <dt>Kontextmenü</dt>
+      <dd>Wenn Sie mit der rechten Maustaste auf ein Video in der Nähe des rechten oder unteren Randes eines Players klicken, wird das Player-Kontextmenü außerhalb des Bildschirms angezeigt.</dd>
+      <dt>Verwenden mehrerer Spieler unterschiedlicher Größe mit derselben player_id auf einer Seite</dt>
+      <dd>
+        <p>
+          Wenn mehrere Spieler dieselbe ID auf einer Seite haben und darin eine andere Größe angeben <code translate="No">&lt;video&gt;</code> Tag mit <code translate="No">width</code> und <code translate="No">height</code> Attribute wird das Spieler-CSS des letzten Spielers auf alle Spieler angewendet.
+        </p>
+        <p><strong>Problemumgehungen</strong></p>
+        <ul>
+          <li>Verwenden Sie Spieler mit anderen Spieler-IDs, wenn Sie möchten, dass sie unterschiedliche Größen oder Stile haben</li>
+          <li>Definiere eine Klasse für die Spieler, die die Player Sizing mithilfe von CSS bereitstellen, und füge die Klassen den Video-Tags für die verschiedenen Spieler hinzu</li>
+        </ul>
+      </dd>
+      <dt>FastClick.js führt zu einer falschen Ereignisbehandlung</dt>
+      <dd>Die Verwendung von FastClick.js führt zu einer falschen Ereignisbehandlung in unserer benutzerdefinierten Steuerleiste. Dies kann dazu führen, dass unsere Steuerleiste auf Mobilgeräten nicht verwendet werden kann.</dd>
+      <dt>Videos werden in Chrome und Firefox grau angezeigt</dt>
+      <dd>
+        <p>Bei Verwendung von Chrome und Firefox werden Videos im Brightcove-Player möglicherweise grau angezeigt. Dies kann auf Hardwarebeschleunigung und / oder NVIDIA-Treibereinstellungen zurückzuführen sein.</p>
+        <p><strong>Problemumgehung:</strong> Öffnen Sie die NVIDIA-Systemsteuerung. Unter <strong>Video</strong> wählen <strong>Passen Sie die Einstellungen für die Videofarbe an</strong>. Unter <strong>Wie nehmen Sie Farbanpassungen vor?</strong> wählen <strong>Mit den NVIDIA-Einstellungen</strong>. Unter <strong>Fortgeschrittene</strong> stellen Sie sicher <strong>Dynamikbereich</strong> ist <strong>Voll (0-255)</strong> nicht <strong>Limited (16-235)</strong>. <strong>Dynamische Kontrastverbesserung</strong> sollte deaktiviert sein. Dieses Problem wurde auf der gemeldet <a href="https://productforums.google.com/forum/#!topic/chrome/wsDhGzP73bI;context-place=forum/chrome">Google Chrome-Hilfeforum</a>.</p>
+      </dd>
+      <dt>Verwenden von Emulatoren</dt>
+      <dd>
+        <p>Beachten Sie, dass Emulatoren die Leistung eines tatsächlichen Geräts nicht genau wiedergeben, unabhängig davon, ob Sie den Chrome-Gerätemodus oder andere Emulatoren zum Testen der Videowiedergabe verwenden. Während Sie während der Entwicklung Emulatoren für erste Tests verwenden können, empfiehlt es sich, echte Geräte zu verwenden, um genaue Ergebnisse zu erzielen.</p>
+        <p>Beim Testen der Wiedergabe im Chrome-Gerätemodus wird möglicherweise folgende Meldung angezeigt: "Durch die Verwendung von Chrome im Gerätemodus werden lediglich das Ansichtsfenster und die Benutzeragentenzeichenfolge dieses Geräts in Chrome gerendert. Dies ist keine genaue Darstellung der tatsächlichen Leistung des Geräts."</p>
+      </dd>
+      <dt>Verwenden von <code translate="No">data-setup </code></dt>
+      <dd>Sie sollten NICHT verwenden <code translate="No">data-setup </code> mit Brightcove-Player. Sie sehen möglicherweise die Verwendung von <code translate="No">data-setup </code> in der API-Dokumentation, aber das liegt daran, dass diese Dokumentation direkt aus dem Quellcode des Video.js-Players generiert wird und Sie dieses Attribut KÖNNEN mit dem <code translate="No">video </code> Tag mit reinem Video.js. Das Attribut sendet Konfigurationsinformationen an den Player, aber Brightcove Player verwendet eine andere Methode, um diese Aufgabe auszuführen <code translate="No">data-setup </code> unzuverlässig.</dd>
+      <dt>Protokollabhängige Quellenauswahl und DASH</dt>
+      <dd>Die protokollbezogene Quellenauswahl ist bei Verwendung von DASH-Inhalten nicht verfügbar. Es ist nur für HLS- und MP4-Inhalte verfügbar</dd>
+      <dt>Konsolenfehler bei Verwendung der Iframe-Player-Implementierung in Safari</dt>
+      <dd>Wenn Sie die iframe-Implementierung von Brightcove Player in Safari verwenden, wird in der Konsole die folgende Fehlermeldung angezeigt: <strong>Blockiert einen Frame mit dem Ursprung "https://players.brightcove.net" für den Zugriff auf einen Frame mit dem Ursprung "#DOMAIN NAME#". Protokolle, Domänen und Ports müssen übereinstimmen.</strong> Der gemeldete Fehler wirkt sich nicht auf die Wiedergabe aus.</dd>
+      <dt>"Unbekannt" wird im Untertitelmenü in Safari angezeigt.</dt>
+      <dd>Dies ist eine Einschränkung für Safari / Apple. Neuere Versionen des Brightcove Players verwenden native Untertitelungsfunktionen, die in Safari integriert sind. Dies ist das Standardverhalten. Dies wird von Apple dokumentiert: <a href="https://developer.apple.com/library/ios/qa/qa1801/_index.html">https://developer.apple.com/library/ios/qa/qa1801/_index.html</a></dd>
+      <dt>Vollbild in Nicht-Flash-Umgebungen</dt>
+      <dd>
+        <p>
+          In Umgebungen, in denen Flash deaktiviert oder Flash-basiertes HLS für den Player deaktiviert ist und die Größe des Players explizit mithilfe von a festgelegt wurde <code translate="No">style </code> Attribut auf der <code translate="No">video </code> Tag, die Vollbildanzeige funktioniert in einigen Browsern möglicherweise nicht.
+        </p>
+        <p>Problemumgehung: Entfernen Sie die <code translate="No">style </code> Attribut aus dem <code translate="No">video </code> Tag, und erstellen Sie stattdessen eine Regel im Seiten-Stylesheet wie folgt:</p>
+        <pre>
+  <code class="language-css" translate="No">.video-js{
+  width:640px;
+  height:360px;
+  }
+  </code>
+  </pre>
+      </dd>
+      <dt>Soziales Teilen</dt>
+      <dd>Auf Desktops ist die Schaltfläche zum Teilen von Inhalten in Anzeigen nicht sichtbar.</dd>
+      <dt>HTTPS</dt>
+      <dd>
+        <p>In den meisten Desktop-Browsern spielt der Brightcove Player HLS nur auf HTTPS-Websites ab, wenn sowohl das Manifest- als auch das Videosegment über HTTPS-Verbindungen bereitgestellt werden. Dies ist auf die jüngsten Änderungen an mehreren Browsern zurückzuführen, die Nicht-SSL-Inhalte stärker einschränken. Dies betrifft Benutzer von Chrome, Firefox und Internet Explorer auf Desktop-Computern. Safari-Benutzer oder mobile Browser sind davon nicht betroffen, und die Wiedergabe von MP4-Wiedergaben ist davon nicht betroffen.</p>
+        <p>Wir sind dabei, diese Einschränkung für von Video Cloud verwaltete Assets zu beheben. Wenn Sie Ihr eigenes CDN und Ihre eigene Transcodierung (Remote-Assets) verwalten, müssen Sie Ihr CDN so konfigurieren, dass die HTTPS-Bereitstellung von Manifest- und Videoinhalten unterstützt wird.</p>
+      </dd>
+      <dt>Vollbildanzeige</dt>
+      <dd>
+        <p>In neueren Browsern, die die Vollbild-API unterstützen, müssen In-Page-CSS-Regeln angewendet werden, um sicherzustellen, dass der Player beim Wechsel zum Vollbildmodus auf 100% skaliert wird. Andernfalls wird der Player in der Originalgröße im Vollbild angezeigt. Einzelheiten finden Sie in der <a href="https://player.support.brightcove.com/styling/sizing-player.html#fullscreen">Vollbildanzeige</a> Thema in der <strong>Größe des Players</strong> Dokument.</p>
+        <p>Für IE10 und frühere Versionen ohne Vollbild-API-Unterstützung wird ein neues Fenster geöffnet, der Player wird jedoch nicht so dimensioniert, dass er das Fenster ausfüllt. Dies liegt daran, dass keine Stile angewendet wurden, um die Größe des Players zu ändern. Da das Fenster nicht gescrollt werden kann, wird möglicherweise nur ein Abschnitt der Website ohne Player angezeigt.</p>
+      </dd>
+      <dt>Auf einer Seite werden mehrere Videos mit HapYak-Kapiteln veröffentlicht</dt>
+      <dd>
+        <p>Wenn mehrere Videos auf einer Seite mit HapYak-Kapiteln veröffentlicht werden, wird möglicherweise ein falsches Kapitel angezeigt.</p>
+        <p><strong>Problemumgehung</strong></p>
+        <p>Verwenden Sie dieses Skript: <a href="https://github.com/brightcove/gallery-in-page-snippets/blob/master/snippets/hapyakFix.js">https://github.com/brightcove/gallery-in-page-snippets/blob/master/snippets/hapyakFix.js</a>. Die Flash-Wiedergabe (IE11 / Win7) kann dieses Problem jedoch nicht vermeiden, sodass der HTML5-Fallback im Fall von IE11 / Win7 implementiert werden muss.</p>
+      </dd>
+      <dt>Akamai HD und HDS</dt>
+      <dd>Brightcove Player unterstützt keine Videoübertragung über die Akamai HD- oder HDS-Übertragungsmethoden.</dd>
+      <dt>Error: <strong>d.off ist keine Funktion</strong></dt>
+      <dd>
+        <p>Dieser Fehler, der durch einen bekannten Fehler verursacht wird, kann beim Umschalten zwischen verschiedenen Formaten, z. B. MP4 und HLS, in einem Player auftreten. Bis der Fehler behoben ist, können Sie einfach den Code wiederholen, der das Problem verursacht. Der folgende Code ist ein Beispiel, mit dem der Fehler in einer App behoben wurde:</p>
+        <pre>
+  <code class="language-javascript" translate="No">try {
+  myPlayer.catalog.load(video);
+  } catch (e) {
+  myPlayer.catalog.load(video);
+  }
+  myPlayer.play();
+  </code>
+  </pre>
+      </dd>
+      <dt>HLS-Videodauer</dt>
+      <dd>Es ist möglich, dass sich die in der Steuerleiste angezeigte Dauer gegenüber der Erstanzeige ändert. Sobald alle HLS-Segmente geladen sind, kann die Dauer aktualisiert werden.</dd>
+      <dt>RequireJS</dt>
+      <dd>Wenn Sie RequireJS verwenden, müssen Sie möglicherweise das verwenden <code translate="No">bc() </code> Methode, um den Spieler zu instanziieren. Die Notwendigkeit, die Methode zu verwenden, hängt davon ab, wie / wann die Player-Assets geladen werden. Siehe die <a href="https://player.support.brightcove.com/coding-topics/requirejs-and-brightcove-player.html">RequireJS und Brightcove Player</a> Dokument für weitere Informationen.</dd>
+      <dt>referrer_url vs. description_url</dt>
+      <dd>Das <code translate="No">referrer_url </code> Der Wert kann zwischen iOS- und Android-Geräten unterschiedliche Werte haben. Aus diesem Grund wird empfohlen, die zu verwenden <code translate="No">description_url </code> Wert stattdessen. Dieser Wert ist auf allen Plattformen und Geräten konsistent.</dd>
+      <dt>loop-Attribut auf Safari</dt>
+      <dd>Das <strong>Schleife</strong> Das Attribut funktioniert in Safari nicht richtig. Sie können die in der&nbsp;<a href="https://player.support.brightcove.com/code-samples/brightcove-player-sample-creating-video-loop.html">Beispiel für einen Brightcove-Player: Erstellen einer Video-Schleife</a> Dokument.</dd>
+
+      <dt>Bildunterschriften auf Safari</dt>
+      <dd>Da Safari die nativen Funktionen zum Gestalten von Untertiteln verwendet, ist die <strong>Untertiteleinstellungen</strong> Menüoption ist im nicht verfügbar <strong>CC</strong> Menü in Safari-Browsern (sowohl iOS als auch macOS).</dd>
+
+      <dt>Verwenden einer HTML-Element-ID mit dem Namen global</dt>
+      <dd>Sie sollten Ihren erweiterten (in die Seite eingebetteten) Player-Implementierungscode nicht in einem übergeordneten Element verschachteln <code translate="No">&lt;div&gt; </code> Tag mit einem <code translate="No">id </code> den Wert zugewiesen <code translate="No">global </code>. Dies führt zu Problemen mit Brightcove Player.</dd>
+      <dt>Problem mit dem Symbol für Player Version 5</dt>
+      <dd>Brightcove Player Version 5 verwendet für Kapitel und Untertitel dasselbe Symbol. Da sich Version 5 im Wartungsmodus befindet und dies ein kosmetisches Problem ist, ist es zweifelhaft, ob das Problem behoben wird.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="player_plugins">Brightcove Player-Plugins</h2>
+    <p>Sie werden mit dem jeweiligen Plugin-Dokument verknüpft. Sehen Sie sich daher die bekannten Probleme für ein Plugin an. Da sich Version 5 im Wartungsmodus befindet und dies ein kosmetisches Problem ist, wird es nicht behoben.</p>
+    <ul>
+      <li><a href="https://player.support.brightcove.com/plugins/advertising-freewheel-plugin.html#Known_issues">Werbung mit dem FreeWheel Plugin</a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/advertising-ima3-plugin.html#issues">Werbung mit dem IMA3 Plugin</a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/display-error-messages-plugin.html#Known_issues">Plugin für Fehlermeldungen anzeigen</a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/quality-selection-plugin.html#Known_issues">Qualitätsauswahl-Plugin</a></li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="android">Android</h2>
+    <ul>
+      <li>
+        Die Fortschrittskontrolle und der Lautstärkeregler von Brightcove Player können mit den nativen Gesten von TalkBack unter Android nicht angepasst werden. Dies ist auf Plattformbeschränkungen zurückzuführen. Stattdessen muss ein Benutzer direkt mit dem Element interagieren. Unter Android kann der Benutzer durch zweimaliges Tippen mit zwei Fingern den Fortschritt oder die Lautstärke an die Position des doppelten Tippens mit zwei Fingern anpassen.
+      </li>
+      <li>Auf Geräten ist der Fortschrittsbalken für HLS-Videos möglicherweise nicht synchron, da HLS unter Android nicht sehr gut funktioniert. Die Gesamtdauer des Videos wird möglicherweise auch fälschlicherweise als 0:01 Uhr angezeigt.</li>
+      <li>Es gibt mehrere Zugänglichkeitsprobleme mit dem <em>einheimisch</em> Browser auf Handys und Tablets für alle Versionen von Android. Talkback bietet keine Audio- und Vibrationsrückmeldung für die Player-Steuerelemente. (Dieses Problem tut <em>nicht</em> Dies gilt für den Add-On-Chrome-Browser auf Android-Geräten, nur für den nativen Browser.</li>
+      <li>Auf Geräten sprudeln die Tap-Ereignisse für Fehlermeldungen nicht zum übergeordneten Videoelement. Dies bedeutet, dass Sie eine Fehlermeldung nicht schließen können, sobald sie angezeigt wird.</li>
+      <li>Wenn Sie auf Android-Geräten durch die Player-Menüs in der Steuerleiste navigieren, z. B. Untertitel oder Qualitätsauswahl, kann das Menü nach einem langen Drücken auf einen Menüpunkt im geöffneten Zustand "hängen bleiben". Dies liegt daran, dass Chrome das hinzufügt <code translate="No">:hover </code> Pseudoklasse. Durch erneutes langes Drücken an einer anderen Stelle des Players wird das Menü normalerweise geschlossen.</li>
+    </ul>
+    <p class="BCL-aside">Erfahren Sie, wie Sie Android-Apps erstellen, die das verwenden <a href="https://sdks.support.brightcove.com/android/">Brightcove Player SDK für Android</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="ios">iOS</h2>
+    <ul>
+      <li>
+        Die Fortschrittskontrolle und der Lautstärkeregler von Brightcove Player können mit den nativen Gesten von VoiceOver unter iOS nicht angepasst werden. Dies ist auf Plattformbeschränkungen zurückzuführen. Stattdessen muss ein Benutzer direkt mit dem Element interagieren. Unter iOS muss der Benutzer zweimal tippen, um den Fortschrittsbalken oder den Lautstärkeregler auszuwählen. Durch zweimaliges Tippen und Halten kann der Benutzer die Zeit oder die Lautstärke anpassen.
+      </li>
+      <li>Safari unter iOS wird niemals vorgeladen. Einzelheiten finden Sie in der <a href="https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html">Safari HTML5 Audio- und Video-Handbuch</a>.</li>
+      <li>Ein Player-Fehler tritt in iOS auf, wenn zu einer anderen App gewechselt wird. Wenn ein Video in Brightcove Player auf einem iOS-Gerät in Safari / Chrome abgespielt wird, tritt nach dem Wechsel zu einer anderen App ein Fehler auf, und nach einer Minute oder länger wechselt er wieder zu Safari / Chrome.</li>
+    </ul>
+    <h3>iPhone</h3>
+    <ul>
+      <li>Social Sharing funktioniert auf iPhones nicht. Da iOS-Telefone auf natives Vollbild umschalten, können Sie kein Video von einem iPhone freigeben.</li>
+      <li>Auf iPhones sprudeln die Tippereignisse für Fehlermeldungen nicht zum übergeordneten Videoelement. Dies bedeutet, dass Sie eine Fehlermeldung nicht schließen können, sobald sie angezeigt wird.</li>
+    </ul>
+    <p class="BCL-aside">Erfahren Sie, wie Sie iOS-Apps erstellen, die das verwenden <a href="https://sdks.support.brightcove.com/ios/">Brightcove Player SDK für iOS</a>.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="windows8">Windows 8</h2>
+    <ul>
+      <li>Companion-Anzeigen werden nicht unterstützt.</li>
+      <li>Auf Windows 8-Tablets funktioniert die Suche bei der Standard-HTML / MP4-Wiedergabe nicht. Es funktioniert korrekt für HLS Tech.</li>
+      <li>Auf Windows 8-Tablets funktionieren Anzeigen, aber Begleiter führen zum Absturz des Browsers.</li>
+      <li>Auf Windows 8-Tablets werden HLS-, Flash-, Live- und Einbettungstypen unterstützt.</li>
+      <li>Spielt unter Windows 8 MP4 ab, unterstützt jedoch kein Flash oder HLS.</li>
+      <li>Unter Windows 8 wird die Wiedergabe immer im Vollbildmodus ausgeführt, unabhängig davon, ob es sich bei dem Einbettungstyp um Iframe oder Inline handelt. Sobald Sie auf Wiedergabe klicken, wird die Wiedergabe immer im Vollbildmodus ausgeführt. Dies bedeutet, dass die Überlagerungen nicht angezeigt werden, sobald die Wiedergabe beginnt.</li>
+      <li>Untertitel können nicht aktiviert werden.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="chrome">Chrom</h2>
+    <ul>
+      <li><strong>Problem mit Wiedergaben mit niedriger Audio-Bitrate</strong>
+        <p>Aufgrund eines Fehlers bei der Implementierung des MSE on Chrome-Browsers, der hier dokumentiert ist:</p>
+        <p><a href="https://bugs.chromium.org/p/chromium/issues/detail?id=534301">https://bugs.chromium.org/p/chromium/issues/detail?id=534301</a></p>
+        <p>Die Wiedergabe in diesem Browser für Version 5 und höher des BC-Players schlägt fehl (mit MEDIA_ERR_DECODE), wenn sich das Audioprofil der versuchten Wiedergabe von AAC-LC unterscheidet.</p>
+        <p>Um dies bei neu aufgenommenen Inhalten zu vermeiden, müssen Kunden dies auch sicherstellen</p>
+        <ul>
+          <li>verwenden Sie eine Audiobitrate gleich oder größer als 48 Kbit/s</li>
+          <li>fügen Sie die folgende Einstellung in ihr DI-Profil ein: <code translate="No">"max_aac_profile": "aac-lc" </code></li>
+        </ul>
+        <p>Um dies bei vorhandenen Inhalten zu vermeiden, stehen folgende Optionen zur Verfügung:</p>
+        <ul>
+          <li>Retranscoding nach den obigen Empfehlungen</li>
+        </ul>
+      </li>
+      <li>Eine Anforderung für ein HTMl5-Video steht möglicherweise noch aus und das Video wird nie geladen. Siehe Google <a href="https://code.google.com/p/chromium/issues/detail?id=234779">Dokument</a> zu dem Thema.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="firefox">Firefox</h2>
+    <ul>
+      <li>Firefox Browser für Android: Wird nicht offiziell unterstützt, versucht jedoch, Fehler zu beheben, wenn dies möglich ist.</li>
+      <li>Es wurde berichtet, dass Firefox Version 42 möglicherweise Probleme mit der Wiedergabe von Brightcove Player hat. Das Problem scheint mit den Einstellungen des Firefox zu tun zu haben <strong>Verwenden Sie die Hardwarebeschleunigung</strong> die Einstellungen. Wenn diese Option aktiviert ist, gibt der Videoplayer nur Audio wieder und zeigt nur ein Standbild an. Die Lösung für dieses Problem besteht darin, diese Option wie folgt zu deaktivieren: <strong>Optionen -&gt; Erweitert -&gt; Allgemein -&gt; (UNCHECK) Hardwarebeschleunigung verwenden, wenn verfügbar</strong></li>
+      <li>Der Brightcove-Player kann in Firefox eine Zeitüberschreitung aufweisen, wenn das erste Bild Ihres Videoinhalts einen Zeitstempel für die Startpräsentation (pts) größer als 0 aufweist. Die derzeit empfohlene Lösung besteht darin, Ihre Inhalte neu zu codieren. Beachten Sie, dass eine erneute Codierung NICHT eine erneute Transcodierung bedeutet. Der ursprüngliche Master muss erneut hochgeladen werden. Wenn das Problem dadurch nicht behoben wird, wenden Sie sich an <a href="https://supportportal.brightcove.com">Kundendienst</a> für weitere Hilfe.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="internetexplorer">Internet-Explorer</h2>
+    <ul>
+      <li>Untertitel, die so eingestellt sind, dass sie automatisch im Video angezeigt werden (überprüfen Sie die "Standardeinstellung" für eine Beschriftung im Medienmodul), funktionieren nicht mit IE11</li>
+      <li>Videos mit Audio über 48 kHz schlagen während der Wiedergabe unter Edge und IE11 unter Windows 8 und Windows 10 fehl. Dies ist eine Microsoft-Einschränkung. Sehen <a href=" https://msdn.microsoft.com/en-us/library/windows/desktop/dd742784(v=vs.85).aspx#FORMAT_CONSTRAINTS">dieses Microsoft-Dokument</a> für mehr Details.</li>
+      <li>IMA3-Flash-Anzeigen funktionieren im Internet Explorer besser. Google IMA3 unterstützt keine Flash- und HTML-Anzeigen im Internet Explorer. In unseren Tests haben wir jedoch festgestellt, dass das Flash SDK derzeit wesentlich robuster ist.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="safari">Safari</h2>
+    <ul>
+      <li>Keine bekannten Fehler</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="ima3">IMA3</h2>
+    <ul>
+      <li>Bei Verwendung von überspringbaren Google IMA3-Anzeigen haben die Schaltflächen zum Überspringen von Anzeigen keine Registerkartenindizes, sodass eine Tastaturnavigation zu diesen Schaltflächen nicht möglich ist. Daher können Zuschauer, die auf die Tastaturnavigation angewiesen sind, die Anzeige nicht überspringen.</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="brightcoveLive">Brightcove Live</h2>
+    <ul>
+      <li>Wenn der auf eingestellt <code translate="No">h264_profile </code> ist <code translate="No">baseline </code> oder der nicht zum Job hinzugefügt <code translate="No">h264_profile </code> wird anfordern, verursacht es ein Problem unter Windows 10 mit Firefox v57.</li>
+      <li>Wenn das Ende eines Live-Streams erreicht ist, zeigt der Player möglicherweise a an <code translate="No">PLAYER_ERR_TIMEOUT </code> Error.</li>
+    </ul>
+  </section>
+</article>
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Inhalt der Seite</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove-Unterstützung</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">Systemstatus</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Kontaktieren Sie den Support</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Suche in der gesamten Dokumentation</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Ausbildung</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Online-Kurse</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Für einen Kurs anmelden</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Brightcove-Akademie</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">BrightCove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Bright Spot Community Forum</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Hinweise zur Produktfreigabe</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Aktualisierte Dokumentation</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. Alle Rechte vorbehalten.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Datenschutz</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Bedingungen &amp; Bedingungen</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Twitter" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 
